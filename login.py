@@ -1,0 +1,10 @@
+{
+"logins":[
+	{"donaim":"https://app5.com",
+	"url":"https://app5.com/www/student.php",
+	"type":"GET",
+	"account":{
+		"username":"student",
+		"password":"student"
+	}}
+]}

@@ -1,0 +1,43 @@
+{
+	"urls": [{
+		"url": "https://app5.com/www/student.php",
+		"type": "GET",
+		"loginrequired": "true",
+		"param": {
+			"ctg": "messages",
+			"folder": "7"
+		},
+		"loginurl": "https://app5.com/www/index.php?index_page",
+		"loginpayload": {
+			"_qf__login_form": "",
+			"login": "student",
+			"password": "student",
+			"submit_login": "Login"
+		}
+	}, {
+		"url": "https://app4.com/admin/status.php",
+		"type": "GET",
+		"header":{
+			
+		},
+		"loginrequired": "true",
+		"loginurl": "https://app4.com/index.php",
+		"param": {
+			"op": "edit",
+			"status_id": "1"
+		},
+		"loginpayload": {
+			"username": "admin@admin.com",
+			"password": "admin",
+			"dologin": "1"
+		}
+	},{
+		"url": "https://app1.com/users/login.php",
+		"type": "POST",
+		"loginrequired": "false",
+		"param": {
+			"username": "bob",
+			"password": "1"
+		}
+	}]
+}
