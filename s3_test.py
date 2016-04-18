@@ -172,7 +172,7 @@ with open(runname+'.json') as data_file:
 								print len(payload)
 								print length - initialLength
 								print "----------------------------------------"
-								if (falseContent != r.content) and (((length > initialLength) and (abs(length - initialLength)>len(payload)) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
+								if ((falseContent != r.content) and abs(len(falseContent) -len(r.content))>len(payload)) and (((length > initialLength) and (abs(length - initialLength)>len(payload)) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
 									initialUrl = copy.deepcopy(urls)
 									initialUrl["param"] = load
 									initialUrl["loginpayload"] = loginpayload
@@ -284,7 +284,7 @@ with open(runname+'.json') as data_file:
 						index = int(newEndingUrl.find("?"))
 						#print index
 						parsedNewEndingUrl = newEndingUrl[0:index]
-					if (falseContent != r.content) and (((length > initialLength) and (abs(length - initialLength)>len(payload)) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
+					if ((falseContent != r.content) and abs(len(falseContent) -len(r.content))>len(payload)) and (((length > initialLength) and (abs(length - initialLength)>len(payload)) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
 						initialUrl["loginpayload"] = loginpayload
@@ -391,7 +391,7 @@ with open(runname+'.json') as data_file:
 						index = int(newEndingUrl.find("?"))
 						#print index
 						parsedNewEndingUrl = newEndingUrl[0:index]
-					if (falseContent != r.content) and (((length > initialLength) and (abs(length - initialLength)>len(payload)) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) or self_gotsqlsyntaxerror(r.content):
+					if ((falseContent != r.content) and abs(len(falseContent) -len(r.content))>len(payload)) and (((length > initialLength) and (abs(length - initialLength)>len(payload)) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) or self_gotsqlsyntaxerror(r.content):
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
 						initialUrl["loginpayload"] = loginpayload
@@ -519,7 +519,7 @@ with open(runname+'.json') as data_file:
 								print len(payload)
 								print length - initialLength
 								print "----------------------------------------"
-								if (falseContent != r.content) and (((length > initialLength) and (abs(length - initialLength)>len(payload)) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) or self_gotsqlsyntaxerror(r.content):
+								if ((falseContent != r.content) and abs(len(falseContent) -len(r.content))>len(payload)) and (((length > initialLength) and (abs(length - initialLength)>len(payload)) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) or self_gotsqlsyntaxerror(r.content):
 									initialUrl = copy.deepcopy(urls)
 									initialUrl["param"] = load
 									initialUrl["loginpayload"] = loginpayload

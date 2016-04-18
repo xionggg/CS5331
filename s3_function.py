@@ -30,6 +30,6 @@ def self_get(load, url, header):
 	return request
 	
 def self_gotsqlsyntaxerror(content):
-	if ("You have an error in your SQL syntax" in content) | ("Fatal error" in content) | ("Invalid id" in content):	
+	if ("You have an error in your SQL syntax" in content) | ("Invalid id" in content):	
 		return True
 	return False
