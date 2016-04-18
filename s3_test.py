@@ -15,7 +15,7 @@ defaultHeader = {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
 		}
 with open('s2.json') as file:
-	payloads = yaml.safe_load(file);
+	payloads = json.load(file);
 with open('config.json') as file:
 	print "--------------loading login information--------------------"
 	data = json.load(file)
@@ -109,6 +109,22 @@ with open(runname+'.json') as data_file:
 						initialStatus = initialRequest.status_code
 						initialEndingUrl = initialRequest.url
 						for param in initialLoad:
+							
+							load = copy.deepcopy(initialLoad)
+							if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
+								load[param] =  ["'"]
+							else:
+								load[param][0] =  load[param][0]+"'"
+							newurl = url+"?"
+							for l in load:
+								newurl = newurl+l+"="+load[l][0]+"&"
+							newurl = newurl[0:-1]							
+							r = s.get(newurl, headers=initialheader, verify = False)
+							falseContent = r.content
+							newurl = url+"?"
+							for l in load:
+								newurl = newurl+l+"="+load[l][0]+"&"
+							newurl = newurl[0:-1]
 							for payload in payloads:
 								ifisSleepCommand = False
 								if "sleep" in payload:
@@ -157,7 +173,7 @@ with open(runname+'.json') as data_file:
 								print len(payload)
 								print length - initialLength
 								print "----------------------------------------"
-								if (((length > initialLength) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
+								if (falseContent != r.content) and (((length > initialLength) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
 									initialUrl = copy.deepcopy(urls)
 									initialUrl["param"] = load
 									initialUrl["loginpayload"] = loginpayload
@@ -220,6 +236,18 @@ with open(runname+'.json') as data_file:
 			initialStatus = initialRequest.status_code
 			initialEndingUrl = initialRequest.url
 			for param in initialLoad:
+				load = copy.deepcopy(initialLoad)
+				if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
+					load[param] =  ["'"]
+				else:
+					load[param][0] =  load[param][0]+"'"
+				newurl = url+"?"
+				for l in load:
+					newurl = newurl+l+"="+load[l][0]+"&"
+				newurl = newurl[0:-1]							
+				r = requests.get(newurl, headers=initialheader, verify = False)
+				falseContent = r.content
+				newurl = url+"?"
 				for payload in payloads:
 					ifisSleepCommand = False
 					if "sleep" in payload:
@@ -257,7 +285,7 @@ with open(runname+'.json') as data_file:
 						index = int(newEndingUrl.find("?"))
 						#print index
 						parsedNewEndingUrl = newEndingUrl[0:index]
-					if (((length > initialLength) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
+					if (falseContent != r.content) and (((length > initialLength) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
 						initialUrl["loginpayload"] = loginpayload
@@ -323,6 +351,13 @@ with open(runname+'.json') as data_file:
 			initialStatus = initialRequest.status_code
 			initialEndingUrl = initialRequest.url
 			for param in initialLoad:
+				load = copy.deepcopy(initialLoad)				
+				if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
+					load[param] =  ["'"]
+				else:
+					load[param][0] = load[param][0]+"'"					
+				r = requests.post(url, data=load, headers=defaultHeader, verify=False)
+				falseContent = r.content
 				for payload in payloads:
 					#replace each parameter with the payload to test
 					#only test blind
@@ -357,7 +392,7 @@ with open(runname+'.json') as data_file:
 						index = int(newEndingUrl.find("?"))
 						#print index
 						parsedNewEndingUrl = newEndingUrl[0:index]
-					if (((length > initialLength) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) or self_gotsqlsyntaxerror(r.content):
+					if (falseContent != r.content) and (((length > initialLength) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) or self_gotsqlsyntaxerror(r.content):
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
 						initialUrl["loginpayload"] = loginpayload
@@ -433,7 +468,14 @@ with open(runname+'.json') as data_file:
 						initialLength = len(initialRequest.content)#int(initialRequest.headers["Content-Length"])
 						initialStatus = initialRequest.status_code
 						initialEndingUrl = initialRequest.url
-						for param in initialLoad:
+						for param in initialLoad:						
+							load = copy.deepcopy(initialLoad)				
+							if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
+								load[param] =  ["'"]
+							else:
+								load[param][0] = load[param][0]+"'"					
+							r = s.post(url,data = load, headers=defaultHeader, verify = False)
+							falseContent = r.content
 							for payload in payloads:
 								#only test blind sql for post								
 								ifisSleepCommand = False
