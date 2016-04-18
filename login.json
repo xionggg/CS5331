@@ -1,15 +1,21 @@
 {
 	"loginurls": [{
-		"loginurl": ""https://app5.com/www/index.php?index_page",
+		"loginurl": "https://app5.com/www/index.php?index_page",
 		"loginpayload": {
-			"login": "student",
-			"password": "student"
+			"login": ["student"],
+			"password": ["student"]
 		}
 	}, {
 		"loginurl": "https://app4.com/index.php",
 		"loginpayload": {
-			"username": "admin@admin.com",
+			"username": ["admin@admin.com"],
 			"password": "admin"
+		}
+	},{
+		"loginurl": "https://app1.com/users/login.php",
+		"loginpayload": {
+			"username": ["bryce"],
+			"password": ["bryce"]
 		}
 	}]
 }
