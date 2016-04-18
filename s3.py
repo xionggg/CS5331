@@ -21,9 +21,7 @@ with open('login.json') as file:
 			payloadList = loginPayloadDict[loginurl]
 			payloadList.append(loginPayload)
 		else:			
-			payloadList = []
-			payloadList.append(loginPayload)
-			loginPayloadDict[loginurl] = payloadList
+			loginPayloadDict[loginurl] = loginPayload
 
 with open('phase1.json') as data_file:
 	data = json.load(data_file)
@@ -37,18 +35,16 @@ with open('phase1.json') as data_file:
 			newCredentials = []
 			initialLoad = copy.deepcopy(urls["param"])
 			#get first log in credential to test is enough
-			for crendential in crendentials:
-				#assign param to crendentials
-				for param in crendential:
-					initialLoad[param] = crendential[param]
-				credential = copy.deepcopy(initialLoad)
-				#print "Credential"
-				#print credential
-				newCredentials.append(credential)
+			#assign param to crendentials
+			for param in crendentials:
+				initialLoad[param] = [crendentials[param]]
+			credential = copy.deepcopy(initialLoad)
+			#print "Credential"
+			#print credential
+			newCredentials.append(credential)
 			#print newCredentials
 			loginPayloadDict[url] = newCredentials
-			
-	for urls in data["urls"]:		
+for urls in data["urls"]:		
 		url = urls["url"]
 		if urls["loginrequired"] != "true":
 			#print "Login is not required"
@@ -406,4 +402,3 @@ with open('phase1.json') as data_file:
 										
 with open("phase3_output.json",'w') as outfile:	
     json.dump(jsonform,outfile,indent=2)
-			

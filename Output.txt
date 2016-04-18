@@ -1,178 +1,127 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html    >
-<head>
-    <base href = "https://app5.com/www/">
-    <meta http-equiv = "Content-Language" content = "en">
-    <meta http-equiv = "keywords" content = "education">
-    <meta http-equiv = "description" content = "Collaborative Elearning Platform">
-    <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8">
-    <link rel="shortcut icon" href="themes/default/images/favicon.png">
-    <link rel = "stylesheet" type = "text/css" href = "themes/modern/css/css_global.css?build=10653">
-        <title>eFront | Refreshing eLearning</title>
-
-    
-    <script type = "text/javascript">
-        var ajaxObjects = new Array();
-                  top.document.title = "eFront | Refreshing eLearning";
-        if (window.name == 'POPUP_FRAME') var popup=1;
-        var globalImageExtension = 'png';
-                var usingHorizontalInterface = true;
-        
-        var sessionLogin = "";
-        var translationsToJS = new Array();
-    </script>
-
-
-<script>var translations = new Array(); /*used for passing language tags to js*/</script>
-
-</head>
-<body  onkeypress = "if (window.eF_js_keypress) eF_js_keypress(event);" onbeforeunload = "if (window.getPeriodicData) getPeriodicData();">
-  <table class = "pageLayout hideBoth" id = "pageLayout">
-  <tr><td style = "vertical-align:top">
-   <table style = "width:100%;">
-            <tr><td class = "header" colspan = "3"> <div id = "logo">
-  <a href = "index.php">
-   <img  class = 'handle' src = "themes/modern/images/logo/logo.png" title = "eFront" alt = "eFront" />
-  </a>
- </div>
-    <div id = "info">
-   <div id = "site_name" class= "headerText">eFront</div>
-   <div id = "site_motto" class= "headerText">Refreshing eLearning</div>
-  </div>
-  <div id = "path">
-  <div id = "path_title"><a class='titleLink' href = '/www/index.php'>Start page</a><span>&nbsp;<span>&raquo;&nbsp;</span></span><a class='titleLink' href = '/www/index.php?ctg=expired'>Session expired</a></div>
-  <div id = "tab_handles_div"></div>
-  <div id = "path_language">
-     
-    </div>
- </div></td></tr>
-          <tr><td class = "layoutColumn left">
-         </td>
-    <td class = "layoutColumn center">
-     
-    <div class = "block" style = ";" id = "Session+expired" >
-        <div class = "blockContents" >
-          <span class = "handles"><img  src = 'themes/default/images/others/transparent.gif'  class = 'open sprite16 sprite16-navigate_up' alt = "Expand/collapse block" title = "Expand/collapse block" onclick = "toggleBlock(this, '525174d8767493b4718dd711ffdf01ba')"  id = "Session+expired_image"><img  src = 'themes/default/images/others/transparent.gif'  class = 'blockMoveHandle sprite16 sprite16-attachment' alt = "Move block" title = "Move block" onmousedown = "createSortable('firstlist');createSortable('secondlist');if (window.showBorders) showBorders(event)" onmouseup = "if (window.showBorders) hideBorders(event)"></span>
-          <span class = "title">Session expired</span>
-          <span class = "subtitle"></span>
-          
-          <div class = "content" style = ";" id = "Session+expired_content" onmousedown = "if ($('firstlist')) {Sortable.destroy('firstlist');}if ($('secondlist')) {Sortable.destroy('secondlist');}">
-     Your session has expired. Please <a href = "/www/index.php?logout=true" target = "_top" style = "color:red">click here</a> to login again
-    </div>
-          <span style = "display:none">&nbsp;</span>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+        <title>phpBugTracker Admin - Edit Component</title>
+        <link rel="stylesheet" href="../styles/default.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="../styles/print.css" media="print">
+        <META http-equiv="Content-Type" content="text/html; charset=utf-8">    </head>
+    <body>
+        <div class="NavBar">
+            <div class="nav FixedWidth">
+                <div class="header_line1">
+                    <div class="header_image">
+                        <div class="PhpBugTracker">phpBugTracker</div>
+                    </div>
+                    <div class="header_search">
+                        <form action="../bug.php">
+                            <input type="hidden" name="op" value="show">
+                            Find Bug                            <input name="bugid" type="text" id="bugid" size="4">
+                            &nbsp;
+                        </form>
+                    </div>
+                </div>
+                <ul class="tabnav">
+                    <li><a href="configure.php" class="navlink">Configuration</a></li>
+                    <li><a href="project.php" class="navlink">Projects</a></li>
+                    <li><a href="user.php" class="navlink">Users</a></li>
+                    <li><a href="group.php" class="navlink">Group Permisions</a></li>
+                    <li><a href="group.php?op=list-roles" class="navlink">Role Permisions</a></li>
+                    <li><a href="../docs/html/userguide.html" class="navlink">Documentation</a></li>
+                    <li><a href="../index.php" class="navlink">User Tools</a></li>
+                </ul>
+                <ul class="tabnav">
+                    <li><a href="status.php" class="navlink">Statuses</a></li>
+                    <li><a href="resolution.php" class="navlink">Resolutions</a></li>
+                    <li><a href="severity.php" class="navlink">Severities</a></li>
+                    <li><a href="priority.php" class="navlink">Priorities</a></li>
+                    <li><a href="os.php" class="navlink">Operating Systems</a></li>
+                    <li><a href="database.php" class="navlink">Databases</a></li>
+                    <li><a href="site.php" class="navlink">Sites</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    </td>
-    <td class = "layoutColumn right">
-         </td></tr>
-   </table>
-  </td></tr>
-   <tr><td style = "vertical-align:bottom">
-   <table style = "width:100%">
-    <tr><td class = "footer indexFooter" colspan = "3">   a
- </td></tr>
-   </table>
-  </td></tr>
-  </table>
 
+        <div class="ContentBar">
+            <div class="FixedWidth" style="padding: 0px 5px;">
+                <script language="JavaScript">
+	var nameString = 'Please enter a name';
+	var descString = 'Please enter a description';
 
-<script type = "text/javascript">
-translations['_COUPON'] = 'Coupon';
-translations['_CLICKTOENTERDISCOUNTCOUPON'] = 'Click to enter discount coupon';
- redirectLocation ='index.php?ctg=login&register_lessons=1';
+	function checkForm(frm) {
+		if (frm.component_name.value == '') {
+			alert(nameString);
+			frm.component_name.focus();
+			return false;
+		}
+		if (frm.component_desc.value == '') {
+			alert(descString);
+			frm.component_desc.focus();
+			return false;
+		}
+		return true;
+	}
 </script>
-
-
-<script>
-
-var currentUnit = '';  var g_servername = 'https://app5.com/www/';
-</script>
-<script>var BOOKMARKTRANSLATION = 'Bookmarks';var NODATAFOUND = 'No data found';</script>
-
-<script type = "text/javascript" src = "js/scripts.php?build=10653&load=EfrontScripts,scriptaculous/prototype,scriptaculous/scriptaculous,scriptaculous/effects,prototip/prototip,efront_ajax,includes/events"> </script> 
-
-
-<script type = "text/javascript" src = "js/scripts.php?build=10653&load=includes/catalog"> </script>
-
-<div id = "user_table" style = "display:none">
-
-    <div class = "block" style = ";" id = "Information" >
-        <div class = "blockContents" >
-          <span class = "handles"><img  src = 'themes/default/images/others/transparent.gif'  class = 'open sprite16 sprite16-navigate_up' alt = "Expand/collapse block" title = "Expand/collapse block" onclick = "toggleBlock(this, 'a82be0f551b8708bc08eb33cd9ded0cf')"  id = "Information_image"><img  src = 'themes/default/images/others/transparent.gif'  class = 'blockMoveHandle sprite16 sprite16-attachment' alt = "Move block" title = "Move block" onmousedown = "createSortable('firstlist');createSortable('secondlist');if (window.showBorders) showBorders(event)" onmouseup = "if (window.showBorders) hideBorders(event)"></span>
-          <span class = "title">Information</span>
-          <span class = "subtitle"></span>
-          
-          <div class = "content" style = ";" id = "Information_content" onmousedown = "if ($('firstlist')) {Sortable.destroy('firstlist');}if ($('secondlist')) {Sortable.destroy('secondlist');}">
-         <table width = "100%">
-        <tr><td align = "left" id = "user_box" style = "padding:3px 3px 4px 5px;"></td></tr>
-    </table>
-
-    </div>
-          <span style = "display:none">&nbsp;</span>
-        </div>
-    </div>
-</div>
-
-<table id = "popup_table" class = "divPopup" style = "display:none;">
-    <tr class = "defaultRowHeight">
-        <td class = "topTitle" id = "popup_title"></td>
-        <td class = "topTitle" id = "popup_close_cell"><img src = 'themes/default/images/others/transparent.gif' class = 'sprite16 sprite16-close' alt = "Close" name = "" id = "popup_close" title = "Close" onclick = "if (document.getElementById('reloadHidden') && document.getElementById('reloadHidden').value == '1')  {parent.frames[1].location = parent.frames[1].location};eF_js_showDivPopup('', '', this.name);"/>
-    </td></tr>
-    <tr><td colspan = "2" id = "popup_data" style = ""></td></tr>
-    <tr><td colspan = "2" id = "frame_data" style = "display:none;">
-   <iframe name = "POPUP_FRAME" id = "popup_frame" src = "about:blank" >Sorry, but your browser needs to support iframes to see this</iframe>
-    </td></tr>
+&nbsp;<b>Edit Component</b>
+<hr size="1">
+<form method="post" onSubmit="return checkForm(this)">
+<table border="0">
+    <tr>
+        <td valign="top">
+            Name:
+        </td>
+        <td valign="top">
+            <input type="text" name="component_name" value="phpbugtracker160">
+        </td>
+    </tr>
+    <tr>
+        <td valign="top">
+            Description:
+        </td>
+        <td valign="top">
+            <textarea name="component_desc" cols="40" rows="10">phpbugtracker160@localhost</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top">
+            Owner:
+        </td>
+        <td valign="top">
+            <select name="owner"><option value="0">None</option><option value="3">******</option></select>
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            Sort Order:
+        </td>
+        <td>
+            <input type="text" size="3" maxlength="3" name="sort_order" value="5.5.41-0ubuntu0.14.04.1">
+        </td>
+    </tr>
+    <tr>
+        <td valign="top">
+            Active:
+        </td>
+        <td valign="top">
+            <input type="checkbox" name="active" value="1" checked>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top">
+            &nbsp;
+        </td>
+        <td>
+            <input type="submit" value="Submit">
+            <input type="hidden" name="component_id" value="1">
+            <input type="hidden" name="project_id" value="2">
+            <input type="hidden" name="use_js" value="">
+            <input type="hidden" name="op" value="save_component">
+        </td>
+    </tr>
 </table>
-<div id = "error_details" style = "display:none">
-    <div class = "block" style = ";" id = "Error+Details" >
-        <div class = "blockContents" >
-          <span class = "handles"><img  src = 'themes/default/images/others/transparent.gif'  class = 'open sprite16 sprite16-navigate_up' alt = "Expand/collapse block" title = "Expand/collapse block" onclick = "toggleBlock(this, '8097dac250bd2473c6e3a0fc850c1ce0')"  id = "Error+Details_image"><img  src = 'themes/default/images/others/transparent.gif'  class = 'blockMoveHandle sprite16 sprite16-attachment' alt = "Move block" title = "Move block" onmousedown = "createSortable('firstlist');createSortable('secondlist');if (window.showBorders) showBorders(event)" onmouseup = "if (window.showBorders) hideBorders(event)"></span>
-          <span class = "title">Error Details</span>
-          <span class = "subtitle"></span>
-          
-          <div class = "content" style = ";" id = "Error+Details_content" onmousedown = "if ($('firstlist')) {Sortable.destroy('firstlist');}if ($('secondlist')) {Sortable.destroy('secondlist');}">
-     <pre></pre>
-    </div>
-          <span style = "display:none">&nbsp;</span>
+</form>
+            </div>
         </div>
-    </div></div>
-<div id = 'showMessageDiv' style = "display:none"></div>
-<div id="dimmer" class = "dimmerDiv" style = "display:none;"></div>
-<div id = "defaultExceptionHandlerDiv" style = "color:#ffffff;display:none"></div>
 
-
-
-<script>
-
-
-if (parent.frames[0].document.getElementById('dimmer'))
- parent.frames[0].document.getElementById('dimmer').style.display = 'none'
-
-if (top.sideframe && top.sideframe.document && top.sideframe.document.getElementById('loading_sidebar'))
-    top.sideframe.document.getElementById('loading_sidebar').style.display = 'none'; //no prototype here please
-
-    var __shouldTriggerNextNotifications = false;
-
-
-
-
-
-
-
-if (!usingHorizontalInterface) {
- if (top.sideframe && top.sideframe.document.getElementById('current_location')) {
-  top.sideframe.document.getElementById('current_location').value = top.mainframe.location.toString();
- }
-} else {
- if ($('current_location')) {
-  $('current_location').value = document.location.toString();
- }
-}
-
-
-
- translations['_COUPON'] = 'Coupon';
- translations['_CLICKTOENTERDISCOUNTCOUPON'] = 'Click to enter discount coupon';
-   redirectLocation ='index.php?ctg=login&register_lessons=1';
- 
-</script><script>if (__shouldTriggerNextNotifications) { new Ajax.Request("send_notifications.php?ajax=1", {method:'get', asynchronous:true}); } </script>
+    </body>
+</html>

