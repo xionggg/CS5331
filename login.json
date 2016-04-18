@@ -4,8 +4,8 @@
 		"start_url": "https://app5.com/index.php",
 		"loginurl": "https://app5.com/www/index.php?index_page",
 		"loginpayload": {
-			"login": "student",
-			"password": "student"
+			"login": "admin",
+			"password": "admin"
 		}
 	}]
 }
