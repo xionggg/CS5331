@@ -31,7 +31,7 @@ with open('../config.json') as file:
 			else:			
 				loginPayloadDict[loginurl] = loginPayload
 			
-with open(runname+'.json') as data_file:
+with open("../results/"+runname+'.json') as data_file:
 #with open('phase1.json') as data_file:
 	print "--------------loading url information--------------------"
 	data = json.load(data_file)
@@ -305,7 +305,6 @@ with open(runname+'.json') as data_file:
 						
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
-						initialUrl["loginpayload"] = loginpayload
 						initialUrl["newurl"] = newurl
 						jsonform.append(initialUrl)		
 					continue
@@ -347,7 +346,6 @@ with open(runname+'.json') as data_file:
 							vunlerableUrlWithParam[parsedUrl] = listOfParam
 							initialUrl = copy.deepcopy(urls)
 							initialUrl["param"] = load
-							initialUrl["loginpayload"] = loginpayload
 							initialUrl["newurl"] = newurl
 							jsonform.append(initialUrl)					
 
@@ -360,7 +358,7 @@ with open(runname+'.json') as data_file:
 						continue	
 					print "-----------Result----------------"
 					try:
-						resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand, payload,False,initialTrip,trip,loginPayload,param)
+						resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand, payload,False,initialTrip,trip,{},param)
 						issuccessful = resultArray[0]
 						print resultArray[1]
 					except:
@@ -370,7 +368,6 @@ with open(runname+'.json') as data_file:
 					if issuccessful:
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
-						initialUrl["loginpayload"] = loginpayload
 						initialUrl["newurl"] = newurl
 						jsonform.append(initialUrl)		
 
@@ -395,7 +392,6 @@ with open(runname+'.json') as data_file:
 					if hackContentLength == initialLength:
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
-						initialUrl["loginpayload"] = loginpayload
 						initialUrl["newurl"] = newurl
 						initialUrl["headers"] = hackHeader
 						jsonform.append(initialUrl)		
@@ -455,7 +451,6 @@ with open(runname+'.json') as data_file:
 						
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
-						initialUrl["loginpayload"] = loginpayload
 						jsonform.append(initialUrl)		
 					continue
 				for payload in payloads:
@@ -489,7 +484,6 @@ with open(runname+'.json') as data_file:
 							vunlerableUrlWithParam[parsedUrl] = listOfParam
 							initialUrl = copy.deepcopy(urls)
 							initialUrl["param"] = load
-							initialUrl["loginpayload"] = loginpayload
 							initialUrl["newurl"] = newurl
 							jsonform.append(initialUrl)					
 
@@ -505,7 +499,7 @@ with open(runname+'.json') as data_file:
 
 					print "-----------Result----------------"
 					try:
-						resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand,payload,True,initialTrip,trip,loginPayload,param)
+						resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand,payload,True,initialTrip,trip,{},param)
 						issuccessful = resultArray[0]
 						print resultArray[1]
 					except:
@@ -514,7 +508,6 @@ with open(runname+'.json') as data_file:
 					if issuccessful:
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
-						initialUrl["loginpayload"] = loginpayload
 						jsonform.append(initialUrl)				
 
 						text_file = open("Output.txt", "w")
@@ -539,7 +532,6 @@ with open(runname+'.json') as data_file:
 					if hackContentLength == initialLength:
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
-						initialUrl["loginpayload"] = loginpayload
 						initialUrl["headers"] = hackHeader
 						jsonform.append(initialUrl)		
 	data["urls"] = copy.deepcopy(urlsToProcess)
@@ -707,5 +699,6 @@ with open(runname+'.json') as data_file:
 	data["urls"] = copy.deepcopy(urlsToProcess)
 
 	
-with open("../results/phase3_output.json",'w') as outfile:	
+with open("../results/phase3_output_"+runname+".json",'w') as outfile:	
 	json.dump(jsonform,outfile,indent=2)
+print "==========================Scan Finished========================================"

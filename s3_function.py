@@ -102,7 +102,7 @@ def self_hijackSuccessful(initialRequest, newRequest, falseRequest, isSleepComma
 	if (falseTitle!= initialTitle) and (newTitle == falseTitle):
 		message = "Suspect page was redirected to default error page based on url"
 		return [False,message]
-	if(falseRequest.content == newRequest.content) or abs(len(falseRequest.content) - len(newRequest.content) < 10):
+	if(falseRequest.content == newRequest.content) or (abs(len(falseRequest.content) - len(newRequest.content)) < 10):
 		message = "Content is almost the same with false response content"
 		return [False,message]
 	if len(newRequest.content)-len(initialRequest.content) < (count*lenthOfDecodedPayload + countOfParam * 20 + countBeforeDecode*len(payload)):
