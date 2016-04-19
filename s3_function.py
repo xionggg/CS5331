@@ -8,6 +8,8 @@ def self_checkIfCanLogin(payload, loginurl, header):
 	content = request.content.lower().replace(" ", "")
 	if ("logout" in content) and (request.status_code == 200):
 		return True
+	if "session expired" in content:
+		return False
 	for param in payload:
 		print param
 		if ("name='"+str(param)+"'" in content) or ('name="'+str(param)+'"' in content):
@@ -19,6 +21,10 @@ def self_checkIfCanLogin(payload, loginurl, header):
 def self_checkStillLoggedIn(loginpayload, content):
 	content = content.lower().replace(" ", "")
 	#if ("logout" in content):
+	if "session expired" in content:
+		return False
+	if ("logout" in content):
+		return True
 	for param in loginpayload:
 		if ("name='"+str(param)+"'" in content) or ('name="'+str(param)+'"' in content):
 			if len(content) > 0:
@@ -88,7 +94,7 @@ def self_hijackSuccessful(initialRequest, newRequest, falseRequest, isSleepComma
 	if isSleepCommand and (newTrip-initialTrip)>5:
 		message = "Is sleep command and the response time diff larger than 5 second"
 		return [True,message]
-	if (not isSleepCommand) and (len(newRequest.content) <= len(initialRequest.content)):
+	if (not isSleepCommand) and (len(newRequest.content) <= len(initialRequest.content) + 20):
 		message = "Content is the same or even smaller"
 		return [False,message]
 	if(self_parseURL(initialRequest.url)!=self_parseURL(falseRequest.url)) and (self_parseURL(newRequest.url) == self_parseURL(falseRequest.url)):
@@ -97,7 +103,7 @@ def self_hijackSuccessful(initialRequest, newRequest, falseRequest, isSleepComma
 	if (falseTitle!= initialTitle) and (newTitle == falseTitle):
 		message = "Suspect page was redirected to default error page based on url"
 		return [False,message]
-	if(falseRequest.content == newRequest.content):
+	if(falseRequest.content == newRequest.content) or abs(len(falseRequest.content) - len(newRequest.content) < 10):
 		message = "Content is almost the same with false response content"
 		return [False,message]
 	if len(newRequest.content)-len(initialRequest.content) < (count*lenthOfDecodedPayload + countOfParam * 20 + countBeforeDecode*len(payload)):

@@ -119,6 +119,54 @@
 		"loginpayload": {
 			"email": "",
 			"password": ""
+		}	},{
+		"name": "app10",
+		"domain": "app10.com",
+		"start_url": "http://app10.com/index.php",
+		"login_page": "",
+		"loginurl": "",
+		"ignore_params": [],
+		"loginpayload": {
+			"email": "",
+			"password": ""
+		}
+	},{
+		"name": "app9_admin",
+		"domain": "app9.com",
+		"start_url": "https://app9.com/index-test.php/site/login",
+		"login_page": "https://app9.com/index-test.php/site/login",
+		"loginurl": "https://app9.com/index-test.php/site/login",
+		"ignore_params": [],
+		"loginpayload": {
+			"LoginForm[username]": "admin",
+			"LoginForm[password]": "admin"
+		}
+	},{
+		"name": "app9_test",
+		"domain": "app9.com",
+		"start_url": "https://app9.com/index-test.php/site/login",
+		"login_page": "https://app9.com/index-test.php/site/login",
+		"loginurl": "https://app9.com/index-test.php/site/login",
+		"ignore_params": [],
+		"username_field": "LoginForm[username]",
+		"password_field": "LoginForm[password]",
+		"loginpayload": {
+			"LoginForm[username]": "test",
+			"LoginForm[password]": "test"
+		}
+
+	},{
+		"name": "app8_test",
+		"domain": "app8.com",
+		"start_url": "https://app8.com/upload/index.php",
+		"login_page": "https://app8.com/upload/index.php?route=account/login",
+		"loginurl": "https://app8.com/upload/index.php?route=account/login",
+		"ignore_params": [],
+		"username_field": "email",
+		"password_field": "password",
+		"loginpayload": {
+			"email": "test@test.com",
+			"password": "test"
 		}
 	}]
 }

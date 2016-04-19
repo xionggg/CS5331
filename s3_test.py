@@ -126,6 +126,9 @@ with open(runname+'.json') as data_file:
 								newurl = newurl+l+"="+load[l][0]+"&"
 							newurl = newurl[0:-1]							
 							falseRequest = s.get(newurl, headers=initialheader, verify = False)
+							if not self_checkStillLoggedIn(loginPayload,falseRequest.content):
+								#if logged out after get, try to login again
+								p = s.post(loginurl, data=loginpayload, verify=False)
 							if self_gotsqlsyntaxerror(falseRequest.content):
 								#got sql syntax error hack successful
 								#break for loop
@@ -145,6 +148,9 @@ with open(runname+'.json') as data_file:
 									jsonform.append(initialUrl)		
 								continue
 							for payload in payloads:
+								if payload.endswith('#'):
+									#do not do this for get request...
+									continue
 								ifisSleepCommand = False
 								if "sleep" in payload:
 									ifisSleepCommand = True
@@ -164,6 +170,10 @@ with open(runname+'.json') as data_file:
 								start = time.time()
 								#r = s.get(url,params = load, headers=header, verify = False)
 								r = s.get(newurl, headers=initialheader, verify = False)
+								if not self_checkStillLoggedIn(loginPayload,r.content):
+									#if logged out after get, try to login again
+									p = s.post(loginurl, data=loginpayload, verify=False)
+									continue
 								newContent = r.content
 								trip = time.time() - start
 								length = len(r.content)
@@ -299,6 +309,9 @@ with open(runname+'.json') as data_file:
 						jsonform.append(initialUrl)		
 					continue
 				for payload in payloads:
+					if payload.endswith('#'):
+						#do not do this for get request...
+						continue
 					ifisSleepCommand = False
 					if "sleep" in payload:
 						ifisSleepCommand = True
@@ -584,7 +597,9 @@ with open(runname+'.json') as data_file:
 							else:
 								load[param][0] = load[param][0]+"'"					
 							falseRequest = s.post(url,data = load, headers=defaultHeader, verify = False)
-
+							if not self_checkStillLoggedIn(loginPayload,falseRequest.content):
+								#if logged out after get, try to login again
+								p = s.post(loginurl, data=loginpayload, verify=False)
 							if self_gotsqlsyntaxerror(falseRequest.content):
 								#got sql syntax error hack successful
 								#break for loop
@@ -618,6 +633,10 @@ with open(runname+'.json') as data_file:
 									load[param][0] =  load[param][0]+payload
 								start = time.time()
 								r = s.post(url,data = load, headers=defaultHeader, verify = False)
+
+								if not self_checkStillLoggedIn(loginPayload,r.content):
+									#if logged out after get, try to login again
+									p = s.post(loginurl, data=loginpayload, verify=False)
 								if self_gotsqlsyntaxerror(r.content):
 									#got sql syntax error hack successful
 									#break for loop
