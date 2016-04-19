@@ -1,6 +1,5 @@
 import requests
 import re
-from difflib import Differ
 import urllib
 titleRe = re.compile("<title.*?>(.+?)</title>")
 def self_checkIfCanLogin(payload, loginurl, header):

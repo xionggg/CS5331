@@ -15,9 +15,9 @@ defaultHeader = {
 			"Referer": "https://app5.com/www/index.php",
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
 		}
-with open('s2.json') as file:
+with open('../s2.json') as file:
 	payloads = json.load(file);
-with open('config.json') as file:
+with open('../config.json') as file:
 	print "--------------loading login information--------------------"
 	data = json.load(file)
 	for loginurls in data["loginurls"]:
@@ -259,11 +259,12 @@ with open(runname+'.json') as data_file:
 		url = urls["url"]
 		if(urls["type"]=="GET") and (urls["loginrequired"] == "false") and (url not in loginPayloadDict):
 			urlsToProcess.remove(urls)	
+			initialLoad = copy.deepcopy(urls["param"])	
 			initialheader = defaultHeader		
 			# An authorised request.
 			initialLoad = copy.deepcopy(urls["param"])							
 			start = time.time()
-			initialRequest = requests.get(url, params=load, headers=initialheader, verify=False)# s.get(url,params = initialLoad, headers=header, verify = False)
+			initialRequest = requests.get(url, params=initialLoad, headers=initialheader, verify=False)# s.get(url,params = initialLoad, headers=header, verify = False)
 			initialContent = initialRequest.content
 			initialTrip = time.time() - start
 			print "-------------------Initial Request---------------------"
@@ -415,7 +416,7 @@ with open(runname+'.json') as data_file:
 				if (not initialLoad[param]) | (initialLoad[param][0] is None) | (initialLoad[param][0] == "") | (initialLoad[param][0] == "None"):
 					initialLoad[param] =  ["a"]						
 			start = time.time()
-			initialRequest = requests.post(url, params=load, headers=defaultHeader, verify=False)
+			initialRequest = requests.post(url, params=initialLoad, headers=defaultHeader, verify=False)
 			initialContent = initialRequest.content
 			initialTrip = time.time() - start
 			print "-------------------Initial Request---------------------"
@@ -706,5 +707,5 @@ with open(runname+'.json') as data_file:
 	data["urls"] = copy.deepcopy(urlsToProcess)
 
 	
-with open("phase3_output.json",'w') as outfile:	
+with open("../results/phase3_output.json",'w') as outfile:	
 	json.dump(jsonform,outfile,indent=2)

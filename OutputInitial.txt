@@ -8,8 +8,6 @@
 <!--[if lt IE 8]>
 <link rel="stylesheet" type="text/css" href="/themes/x2engine/css/ie.css" media="screen, projection">
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="/themes/x2engine/css/gridview/styles.css" />
-<link rel="stylesheet" type="text/css" href="/assets/837009f9/pager.css" />
 <link rel="stylesheet" type="text/css" href="/assets/cfd2a52c/jui/css/base/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="/css/normalize.css" media="all" />
 <link rel="stylesheet" type="text/css" href="/themes/x2engine/css/screen.css?1377205885" media="screen, projection" />
@@ -52,10 +50,8 @@ filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#a', endColors
 /*]]>*/
 </style>
 <script type="text/javascript" src="/assets/cfd2a52c/jquery.js"></script>
-<script type="text/javascript" src="/assets/cfd2a52c/jquery.ba-bbq.js"></script>
 <script type="text/javascript" src="/assets/cfd2a52c/jui/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/assets/cfd2a52c/jquery.yii.js"></script>
-<script type="text/javascript" src="/js/x2gridview.js"></script>
 <script type="text/javascript" src="/js/clockWidget.js"></script>
 <script type="text/javascript" src="/js/json2.js"></script>
 <script type="text/javascript" src="/js/layout.js"></script>
@@ -95,65 +91,6 @@ filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#a', endColors
 				
 					x2.isIPad = false;
 				
-function toggleAttachmentForm() {			
-			if($('#attachment-form').is(':hidden')) {
-				$('.focus-mini-module').removeClass('focus-mini-module');
-				$('#attachment-form').find('.form').addClass('focus-mini-module');
-				$('html,body').animate({
-					scrollTop: ($('#attachment-form-top').offset().top - 100)
-				}, 300);
-			}
-			$('#attachment-form').animate({
-				opacity: 'toggle',
-				height: 'toggle'
-			}, 300);
-		}
-		
-		$(function() {
-			// give attachment module focus when clicked
-		    $('#attachment-form').click(function() {
-		    	if(!$('#attachment-form').find('.form').hasClass('focus-mini-module')) {
-		    		$('.focus-mini-module').removeClass('focus-mini-module');
-		    		$('#attachment-form').find('.form').addClass('focus-mini-module');
-		    	}
-		    });
-		});
-		
-
-var illegal_ext = ['exe','bat','dmg','js','jar','swf','php','pl','cgi','htaccess','py'];	// array with disallowed extensions
-
-function checkName(el, sbm) {
-	// - www.coursesweb.net
-	// get the file name and split it to separe the extension
-	var name = el.value;
-	var ar_name = name.split('.');
-
-	ar_ext = ar_name[ar_name.length - 1].toLowerCase();
-
-	// check the file extension
-	var re = 1;
-	for(i in illegal_ext) {
-		if(illegal_ext[i] == ar_ext) {
-			re = 0;
-			break;
-		}
-	}
-
-	// if re is 1, the extension isn't illegal
-	if(re==1) {
-		// enable submit
-		$(sbm).removeAttr('disabled');
-	}
-	else {
-		// delete the file name, disable Submit, Alert message
-		el.value = '';
-		$(sbm).attr('disabled','disabled');
-
-		var filenameError = "\"{X}\" is not an allowed filetype.";
-		alert(filenameError.replace('{X}',ar_ext));
-	}
-}
-
 
 function addTopContact(contactId) {
 	$.ajax({
@@ -257,7 +194,7 @@ $(function() {
 	function updateNotes(){
 		$.ajax({
 			type: 'POST',
-			url: '/index-test.php/site/getNotes?url=/index-test.php/docs?Docs_sort=lastUpdated&Media_sort=uploadedBy',
+			url: '/index-test.php/site/getNotes?url=/index-test.php/media/update?id=1003',
 			success:
 			function (data){
 				//alert('old: '+$('#note-box').html()+'<br><br>new: '+data);
@@ -323,7 +260,7 @@ $(function() {
 	function updateURLs(){
 		$.ajax({
 			type: 'POST',
-			url: '/index-test.php/site/getURLs?url=/index-test.php/docs?Docs_sort=lastUpdated&Media_sort=uploadedBy',
+			url: '/index-test.php/site/getURLs?url=/index-test.php/media/update?id=1003',
 			success:
 			function(data){
 				$('#sites-box').html(data);
@@ -367,7 +304,7 @@ window.fullscreen = false;
 
 /*]]>*/
 </script>
-<title>X2Engine - Docs</title>
+<title>X2Engine - Update Media</title>
 
 </head>
 <body style="background-color:#a;" class="">
@@ -389,9 +326,9 @@ window.fullscreen = false;
 <li><a href="/index-test.php/workflow/index">Workflow</a></li>
 <li><a href="/index-test.php/services/index">Service</a></li>
 <li><a href="/index-test.php/calendar/index">Calendar</a></li>
-<li class="active"><a href="/index-test.php/docs/index">Docs</a></li>
+<li><a href="/index-test.php/docs/index">Docs</a></li>
 <li><a href="/index-test.php/charts/index">Charts</a></li>
-<li><a href="/index-test.php/media/index">Media</a></li>
+<li class="active"><a href="/index-test.php/media/index">Media</a></li>
 <li><a href="/index-test.php/products/index">Products</a></li>
 <li><a href="/index-test.php/quotes/index">Quotes</a></li>
 <li><a href="/index-test.php/groups/index">Groups</a></li>
@@ -415,7 +352,7 @@ window.fullscreen = false;
 <li><a target="_blank" href="http://www.x2engine.com/reference_guide">Help</a></li>
 <li><a href="/index-test.php/site/bugReport">Report A Bug</a></li>
 <li class="divider"><span>---</span></li>
-<li><a href="#" id="yt8">Go Invisible</a></li>
+<li><a href="#" id="yt7">Go Invisible</a></li>
 <li><a href="/index-test.php/site/logout">Logout</a></li>
 </ul>
 </li>
@@ -438,11 +375,11 @@ window.fullscreen = false;
 <div class="portlet-title">Actions</div>
 </div>
 <div class="portlet-content">
-<ul id="yw3">
-<li><span>List Docs</span></li>
-<li><a href="/index-test.php/docs/create">Create Doc</a></li>
-<li><a href="/index-test.php/docs/createEmail">Create Email</a></li>
-<li><a href="/index-test.php/docs/createQuote">Create Quote</a></li>
+<ul id="yw0">
+<li><a href="/index-test.php/media">All Media</a></li>
+<li><a href="/index-test.php/media/upload">Upload</a></li>
+<li><a href="/index-test.php/media/1003">View</a></li>
+<li><span>Update</span></li>
 </ul></div>
 </div></div><div class='sidebar-left'><div class="portlet" id="top-contacts">
 <div class="portlet-decoration">
@@ -693,7 +630,7 @@ window.fullscreen = false;
     .light_background:hover { color: #3366BB !important; }
     .light_background:visited { color: #0B0080 !important; }
 </style>
-<div id="yw4">
+<div id="yw1">
                     <script>
                         $("#bottomUp").addClass('selected');
                     </script>
@@ -795,7 +732,7 @@ $("#activityFeedDropDown").change(function() {
 <div class="portlet-title"><div id="widget-dropdown" class="dropdown">Tag Cloud<div class="portlet-minimize" onclick="toggleWidgetState('TagCloud',0); return false;"><a class="portlet-minimize-button" href="#"><img class="collapse-widget" src="/themes/x2engine/images/icons/Collapse_Widget.png" alt="" /></a> <a onclick="$(&#039;#widget_TagCloud&#039;).hideWidgetRight(); return false;" href="#"><img src="/themes/x2engine/images/icons/Close_Widget.png" alt="" /></a></div></div></div>
 </div>
 <div class="portlet-content">
-<span style="float:left"><a href="#" id="yt2">Just Me</a> | <a href="#" id="yt3">All Users</a><br /></span><span style="float:right"><span id="tag-hint" style="color:#06c">[?]</span></span> <br><br>
+<span style="float:left"><a href="#" id="yt1">Just Me</a> | <a href="#" id="yt2">All Users</a><br /></span><span style="float:right"><span id="tag-hint" style="color:#06c">[?]</span></span> <br><br>
 <div id="myTags" >
 </div>
 
@@ -855,7 +792,7 @@ $("#activityFeedDropDown").change(function() {
 <div class="portlet-content">
 <div id="motd-box">Please enter a message of the day!</div>
 <div id="motd-form" style="display:none;">
-<form action="/index-test.php/docs?Docs_sort=lastUpdated&amp;Media_sort=uploadedBy" method="post"><textarea cols="16" onclick="clearText(this)" name="message" id="message"></textarea><input class="x2-button" type="submit" name="yt4" value="Submit" id="yt4" /></form></div></div>
+<form action="/index-test.php/media/update?id=1003" method="post"><textarea cols="16" onclick="clearText(this)" name="message" id="message"></textarea><input class="x2-button" type="submit" name="yt3" value="Submit" id="yt3" /></form></div></div>
 </div>                    <script>
                         $("#bottomUp").addClass('selected');
                     </script>
@@ -867,14 +804,14 @@ $("#activityFeedDropDown").change(function() {
 <div class="portlet-title"><div id="widget-dropdown" class="dropdown">Quick Contact<div class="portlet-minimize" onclick="toggleWidgetState('QuickContact',0); return false;"><a class="portlet-minimize-button" href="#"><img class="collapse-widget" src="/themes/x2engine/images/icons/Collapse_Widget.png" alt="" /></a> <a onclick="$(&#039;#widget_QuickContact&#039;).hideWidgetRight(); return false;" href="#"><img src="/themes/x2engine/images/icons/Close_Widget.png" alt="" /></a></div></div></div>
 </div>
 <div class="portlet-content">
-<form id="quick-contact-form" action="/index-test.php/docs?Docs_sort=lastUpdated&amp;Media_sort=uploadedBy" method="POST"><div class="form thin">
+<form id="quick-contact-form" action="/index-test.php/media/update?id=1003" method="POST"><div class="form thin">
 	<div class="row inlineLabel">
 		<input maxlength="40" tabindex="100" style="color:#aaa;width:68px;" title="First Name" name="Contacts[firstName]" id="Contacts_firstName" type="text" value="First Name" />		
 		<input maxlength="40" tabindex="101" style="color:#aaa;width:68px;" title="Last Name" name="Contacts[lastName]" id="Contacts_lastName" type="text" value="Last Name" />		
 		<input maxlength="40" tabindex="102" style="color:#aaa;width:150px;" title="Phone" name="Contacts[phone]" id="Contacts_phone" type="text" value="Phone" />		
 		<input maxlength="100" tabindex="103" style="color:#aaa;width:150px;" title="Email" name="Contacts[email]" id="Contacts_email" type="text" value="Email" />			</div>
 </div>
-<input class="x2-button" type="submit" name="yt5" value="Create" id="yt5" /></form></div>
+<input class="x2-button" type="submit" name="yt4" value="Create" id="yt4" /></form></div>
 </div>                    <script>
                         $("#bottomUp").addClass('selected');
                     </script>
@@ -894,11 +831,11 @@ $("#activityFeedDropDown").change(function() {
 </div>
 
 
-<form action="/index-test.php/docs?Docs_sort=lastUpdated&amp;Media_sort=uploadedBy" method="post">
+<form action="/index-test.php/media/update?id=1003" method="post">
 <div id="note-message-container" style="height: 56px">
 	<textarea style="height: 50px;" name="note-message" id="note-message"></textarea></div>
 
-<input class="x2-button" type="submit" name="yt6" value="Add Note" id="yt6" /></form></div></div></div>
+<input class="x2-button" type="submit" name="yt5" value="Add Note" id="yt5" /></form></div></div></div>
 </div>                    <script>
                         $("#bottomUp").addClass('selected');
                     </script>
@@ -1023,10 +960,10 @@ $("#activityFeedDropDown").change(function() {
 <div id="top-sites-container" style="height:200px; margin-bottom: 20px;">
 <div id="sites-box" style="height:200px">
 <table><tr><th>Title</th><th>Link</th></tr><tr><td>Example</td><td><a href=".">Link</a></td></tr></table></div>
-<form action="/index-test.php/docs?Docs_sort=lastUpdated&amp;Media_sort=uploadedBy" method="post"><div id='site-url-container' style="height: 40px; margin-bottom:35px;">
+<form action="/index-test.php/media/update?id=1003" method="post"><div id='site-url-container' style="height: 40px; margin-bottom:35px;">
 	Title:<input style="height: 10px;" type="text" value="" name="url-title" id="url-title" />	<br/>
 	Link:<input style="height: 10px;" type="text" value="" name="url-url" id="url-url" /></div>
-<input class="x2-button" id="submit-button" type="submit" name="yt7" value="Add Site" /></form></div></div></div>
+<input class="x2-button" id="submit-button" type="submit" name="yt6" value="Add Site" /></form></div></div></div>
 </div>
 </div>                    <script>
                         $("#bottomUp").addClass('selected');
@@ -1081,59 +1018,43 @@ $("#activityFeedDropDown").change(function() {
             });
         });
     </script>
-<script type="text/javascript" src="/themes/x2engine/css/gridview/jquery.yiigridview.js"></script>
 <script type="text/javascript" src="/js/spectrumSetup.js"></script>
 <script type="text/javascript">
 /*<![CDATA[*/
 jQuery(function($) {
 $(window).load(function(){var a=$("#powered-by-x2engine");if(!a.length||a.attr("src")!=yii.baseUrl+"/images/powered_by_x2engine.png"){$("a").removeAttr("href");alert("Please put the logo back")}});
-
-$('.search-button').unbind('click').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('docs-grid', {
-		data: $(this).serialize()
-	});
-	return false;
-});
-
-
-jQuery('body').on('change','#resultsPerPage',function(){jQuery.ajax({'url':'/index-test.php/profile/setResultsPerPage','complete':function(response) {
-							$.fn.yiiGridView.update('docs-grid', {data: {'Docs_page': 1},
-								complete: function(jqXHR, status) {
-									if(typeof(refreshQtip) == 'function') {
-										refreshQtip();
-									}
-								}
-							});
-						},'data': {results: $(this).val()},'cache':false});return false;});
-jQuery('#docs-grid').yiiGridView({'ajaxUpdate':['docs-grid'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'grid-view-loading','filterClass':'filters','tableClass':'items','selectableRows':0,'enableHistory':false,'updateSelector':'{page}, {sort}','filterSelector':'{filter}','pageVar':'Docs_page'});
-$('#docs-grid').gvSettings({
-				viewName:'docs',
-				columnSelectorId:'docs-grid-column-selector',
-				columnSelectorHtml:'<form action="/index-test.php/docs/site/saveGvSettings" method="get"><ul class="column-selector" id="docs-grid-column-selector"><li><input id="gvCheckbox_checkbox" value="gvCheckbox" type="checkbox" name="columns[]" /><label for="gvCheckbox_checkbox">Checkbox</label></li><li><input id="createDate_checkbox" value="createDate" checked="checked" type="checkbox" name="columns[]" /><label for="createDate_checkbox">Created</label></li><li><input id="createdBy_checkbox" value="createdBy" checked="checked" type="checkbox" name="columns[]" /><label for="createdBy_checkbox">Created By</label></li><li><input id="id_checkbox" value="id" type="checkbox" name="columns[]" /><label for="id_checkbox">ID</label></li><li><input id="lastUpdated_checkbox" value="lastUpdated" checked="checked" type="checkbox" name="columns[]" /><label for="lastUpdated_checkbox">Last Updated</label></li><li><input id="name_checkbox" value="name" checked="checked" type="checkbox" name="columns[]" /><label for="name_checkbox">Name</label></li><li><input id="subject_checkbox" value="subject" type="checkbox" name="columns[]" /><label for="subject_checkbox">Subject</label></li><li><input id="type_checkbox" value="type" type="checkbox" name="columns[]" /><label for="type_checkbox">Type</label></li><li><input id="updatedBy_checkbox" value="updatedBy" type="checkbox" name="columns[]" /><label for="updatedBy_checkbox">Updated By</label></li><li><input id="visibility_checkbox" value="visibility" type="checkbox" name="columns[]" /><label for="visibility_checkbox">Visibility</label></li></ul></form>',
-				ajaxUpdate:false
-			});
-jQuery('#attachments-grid').yiiGridView({'ajaxUpdate':['attachments-grid'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'grid-view-loading','filterClass':'filters','tableClass':'items','selectableRows':1,'enableHistory':false,'updateSelector':'{page}, {sort}','filterSelector':'{filter}','pageVar':'Media_page'});
-jQuery('#yw4').sortable({'opacity':0.6,'handle':'.portlet-decoration','distance':20,'delay':150,'revert':50,'update':function(){
+jQuery('#contacts-auto-select').autocomplete({'minLength':'2','select':function( event, ui ) {
+																$("#association-id").val(ui.item.id);
+																$(this).val(ui.item.value);
+																return false;
+															},'source':'/index-test.php/contacts/getItems'});
+jQuery('#accounts-auto-select').autocomplete({'minLength':'2','select':function( event, ui ) {
+																$("#association-id").val(ui.item.id);
+																$(this).val(ui.item.value);
+																return false;
+															},'source':'/index-test.php/accounts/getItems'});
+jQuery('#opportunities-auto-select').autocomplete({'minLength':'2','select':function( event, ui ) {
+																$("#association-id").val(ui.item.id);
+																$(this).val(ui.item.value);
+																return false;
+															},'source':'/index-test.php/opportunities/getItems'});
+jQuery('#yw1').sortable({'opacity':0.6,'handle':'.portlet-decoration','distance':20,'delay':150,'revert':50,'update':function(){
 					$.ajax({
 							type: 'POST',
 							url: '/index-test.php/site/widgetOrder',
 							data: $(this).sortable('serialize')
 					});
 				}});
-jQuery('body').on('click','#yt2',function(){jQuery.ajax({'success':function(response) { $("#myTags").show(); $("#allTags").hide(); } ,'url':'/index-test.php/site/toggleShowTags?tags=justMe','cache':false});return false;});
-jQuery('body').on('click','#yt3',function(){jQuery.ajax({'success':function() { $("#allTags").show(); $("#myTags").hide(); },'url':'/index-test.php/site/toggleShowTags?tags=allUsers','cache':false});return false;});
-jQuery('body').on('click','#yt4',function(){$('#motd-form').hide(); $('#motd-link').show();jQuery.ajax({'type':'POST','url':'/index-test.php/site/motd','cache':false,'data':jQuery(this).parents("form").serialize(),'success':function(html){jQuery("#motd-box").html(html)}});return false;});
-jQuery('body').on('click','#yt5',function(){jQuery.ajax({'success':function(response) {
+jQuery('body').on('click','#yt1',function(){jQuery.ajax({'success':function(response) { $("#myTags").show(); $("#allTags").hide(); } ,'url':'/index-test.php/site/toggleShowTags?tags=justMe','cache':false});return false;});
+jQuery('body').on('click','#yt2',function(){jQuery.ajax({'success':function() { $("#allTags").show(); $("#myTags").hide(); },'url':'/index-test.php/site/toggleShowTags?tags=allUsers','cache':false});return false;});
+jQuery('body').on('click','#yt3',function(){$('#motd-form').hide(); $('#motd-link').show();jQuery.ajax({'type':'POST','url':'/index-test.php/site/motd','cache':false,'data':jQuery(this).parents("form").serialize(),'success':function(html){jQuery("#motd-box").html(html)}});return false;});
+jQuery('body').on('click','#yt4',function(){jQuery.ajax({'success':function(response) {
 			if(response!='') {
 				alert('Contact Saved');
 				$('#quick-contact-form').html(response);
 			}
 		},'type':'POST','url':'/index-test.php/contacts/quickContact','cache':false,'data':jQuery(this).parents("form").serialize()});return false;});
-jQuery('body').on('click','#yt6',function(){jQuery.ajax({'success':function(response) {
+jQuery('body').on('click','#yt5',function(){jQuery.ajax({'success':function(response) {
 			updateNotes();
 			$('#note-message').val('');
 		},'type':'POST','url':'/index-test.php/site/addPersonalNote','cache':false,'data':jQuery(this).parents("form").serialize()});return false;});
@@ -1183,7 +1104,7 @@ jQuery('body').on('click','#submit-button',function(){jQuery.ajax({'success':fun
 
     $.datepicker.setDefaults( $.datepicker.regional[ '' ] );
 
-jQuery('body').on('click','#yt8',function(){if(confirm('Are you sure you want to toggle your session status?')) {jQuery.yii.submitForm(this,'/index-test.php/site/toggleVisibility?visible=&redirect=%2Findex-test.php%2Fdocs%3FDocs_sort%3DlastUpdated%26Media_sort%3DuploadedBy',{});return false;} else return false;});
+jQuery('body').on('click','#yt7',function(){if(confirm('Are you sure you want to toggle your session status?')) {jQuery.yii.submitForm(this,'/index-test.php/site/toggleVisibility?visible=&redirect=%2Findex-test.php%2Fmedia%2Fupdate%3Fid%3D1003',{});return false;} else return false;});
 });
 /*]]>*/
 </script>
@@ -1192,69 +1113,104 @@ jQuery('body').on('click','#yt8',function(){if(confirm('Are you sure you want to
 	<div id="content-container">
 		<div id="content">
 			<!-- content -->
-			<div class="search-form" style="display:none">
-<div class="wide form">
-<form id="yw0" action="/index-test.php/docs" method="get">
-	<div class="row">
-		<label for="Docs_text">Body</label>		<textarea rows="6" cols="50" name="Docs[text]" id="Docs_text"></textarea>	</div>
+			<div class="page-title icon media"><h2><span class="no-bold">Update File: </span> X2_Jazz.mp3</h2></div>
 
-	<div class="row">
-		<label for="Docs_createdBy">Created By</label>		<input size="40" maxlength="40" name="Docs[createdBy]" id="Docs_createdBy" type="text" />	</div>
+<form id="media-form" action="/index-test.php/media/update?id=1003" method="post">
 
-	<div class="row">
-		<label for="Docs_updatedBy">Updated By</label>		<input size="40" maxlength="40" name="Docs[updatedBy]" id="Docs_updatedBy" type="text" />	</div>
+		
 
-	<div class="row">
-		<label for="Docs_name">Name</label>		<input size="60" maxlength="100" name="Docs[name]" id="Docs_name" type="text" />	</div>
+			<div class="x2-layout form-view" style="margin-bottom: 0;">
+
+				<div class="formSection showSection">
+					<div class="formSectionHeader">
+						<span class="sectionTitle">Association</span>
+					</div>
+					<div class="tableWrapper">
+						<table>
+							<tbody>
+								<tr class="formSectionRow">
+									<td style="width: 300px">
+										<div class="formItem leftLabel">
+											<label>Association Type</label>
+											<div class="formInputBox" style="width: 200px; height: auto;">
+												<select onChange="showAssociationAutoComplete(this)" name="Media[associationType]" id="Media_associationType">
+<option value="none">None</option>
+<option value="contacts">Contact</option>
+<option value="opportunities">Opportunity</option>
+<option value="accounts">Account</option>
+<option value="bg">Background</option>
+</select>											</div>
+										</div>
+
+									</td>
+								</tr>
+
+								<tr class="formSectionRow">
+									<td style="width: 300px">
+										<div class="formItem leftLabel">
+											<label>Association Name</label>
+											<div class="formInputBox" style="width: 200px; height: auto;">
+												<input style="display:none;" id="contacts-auto-select" type="text" name="auto_select" /><input style="display:none;" id="accounts-auto-select" type="text" name="auto_select" /><input style="display:none;" id="opportunities-auto-select" type="text" name="auto_select" /><input id="association-id" name="Media[associationId]" type="hidden" />											</div>
+										</div>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="formSection showSection">
+					<div class="formSectionHeader">
+						<span class="sectionTitle">Permission</span>
+					</div>
+					<div class="tableWrapper">
+						<table>
+							<tbody>
+								<tr class="formSectionRow">
+									<td style="width: 300px">
+										<div class="formItem leftLabel">
+											<label>Private</label>
+											<div class="formInputBox" style="width: 200px; height: auto;">
+												<input id="ytMedia_private" type="hidden" value="0" name="Media[private]" /><input name="Media[private]" id="Media_private" value="1" type="checkbox" />											</div>
+										</div>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="formSection showSection">
+					<div class="formSectionHeader">
+						<span class="sectionTitle">Description</span>
+					</div>
+					<div class="tableWrapper">
+						<table>
+							<tbody>
+								<tr class="formSectionRow">
+									<td style="width: 300px">
+										<div class="formItem leftLabel">
+											<div class="formInputBox" style="width: 550px; height: auto;">
+												<textarea rows="5" name="Media[description]" id="Media_description"></textarea>											</div>
+										</div>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+
 
 	<div class="row buttons">
-		<input type="submit" name="yt0" value="Search" />	</div>
-
-</form>
-</div><!-- search-form --></div><!-- search-form -->
-<div id="docs-grid" class="grid-view x2-gridview fullscreen">
-<div class="page-title icon docs"><h2>Docs</h2><div class="x2-button-group"><a title="Advanced Search" class="x2-button search-button" href="#"><span></span></a><a title="Clear Filters" class="x2-button filter-button" href="/index-test.php/docs?clearFilters=1"><span></span></a><a title="Columns" class="column-selector-link x2-button" href="javascript:void(0);"><span></span></a></div><span class="x2-hint" title="&lt;b&gt;Tip:&lt;/b&gt; You can use the following comparison operators with filter values to fine-tune your search.&lt;ul class=&quot;filter-hint&quot;&gt;&lt;li&gt;&lt;b&gt;&amp;lt;&lt;/b&gt; less than&lt;/li&gt;&lt;li&gt;&lt;b&gt;&amp;lt;=&lt;/b&gt; less than or equal to&lt;/li&gt;&lt;li&gt;&lt;b&gt;&amp;gt;&lt;/b&gt; greater than&lt;/li&gt;&lt;li&gt;&lt;b&gt;&amp;gt;=&lt;/b&gt; greater than or equal to&lt;/li&gt;&lt;li&gt;&lt;b&gt;=&lt;/b&gt; equal to&lt;/li&gt;&lt;li&gt;&lt;b&gt;&amp;lt;&amp;gt&lt;/b&gt; not equal to&lt;/li&gt;&lt;/ul&gt;">?</span><div class="summary"><b>1&ndash;1</b> of <b>1</b><div class="form no-border" style="display:inline;"> <select name="resultsPerPage" id="resultsPerPage">
-<option value="10">10 rows</option>
-<option value="20" selected="selected">20 rows</option>
-<option value="30">30 rows</option>
-<option value="40">40 rows</option>
-<option value="50">50 rows</option>
-<option value="75">75 rows</option>
-<option value="100">100 rows</option>
-</select> </div></div></div><div class="x2grid-header-container"><table class="items"><thead>
-<tr>
-<th style="width:253px;" id="C_name"><a class="sort-link" href="/index-test.php/docs?Docs_sort=name&amp;Media_sort=uploadedBy">Title</a></th><th style="width:76px;" id="C_createdBy"><a class="sort-link" href="/index-test.php/docs?Docs_sort=createdBy&amp;Media_sort=uploadedBy">Created By</a></th><th style="width:111px;" id="C_createDate"><a class="sort-link" href="/index-test.php/docs?Docs_sort=createDate&amp;Media_sort=uploadedBy">Created</a></th><th style="width:115px;" class="asc" id="C_lastUpdated"><a class="sort-link asc" href="/index-test.php/docs?Docs_sort=lastUpdated.desc&amp;Media_sort=uploadedBy">Last Updated</a></th><th id="docs-grid_c4">&nbsp;</th></tr>
-<tr class="filters">
-<td><input name="Docs[name]" type="text" /></td><td><input name="Docs[createdBy]" type="text" /></td><td><input name="Docs[createDate]" type="text" /></td><td><input name="Docs[lastUpdated]" type="text" /></td><td>&nbsp;</td></tr>
-</thead>
-</table></div><div class="x2grid-body-container"><table class="items">
-<tbody>
-<tr class="odd">
-<td><a href="/index-test.php/docs/52">Sample Quote Template</a></td><td>Anyone</td><td>May 7, 2013</td><td>May 7, 2013</td><td>&nbsp;</td></tr>
-</tbody>
-</table></div><div class="keys" style="display:none" title="/index-test.php/docs?Docs_sort=lastUpdated&amp;Media_sort=uploadedBy"><span>52</span></div>
-</div><br />
-<div id="attachments-grid" class="grid-view">
-<div class="page-title icon docs"><h2>Uploaded Docs</h2></div><table class="items">
-<thead>
-<tr>
-<th id="attachments-grid_c0"><a class="sort-link" href="/index-test.php/docs?Docs_sort=lastUpdated&amp;Media_sort=fileName">File Name</a></th><th id="attachments-grid_c1"><a class="sort-link asc" href="/index-test.php/docs?Docs_sort=lastUpdated&amp;Media_sort=uploadedBy.desc">Uploaded By</a></th><th id="attachments-grid_c2"><a class="sort-link" href="/index-test.php/docs?Docs_sort=lastUpdated&amp;Media_sort=createDate">Create Date</a></th></tr>
-</thead>
-<tbody>
-<tr><td colspan="3" class="empty"><span class="empty">No results found.</span></td></tr>
-</tbody>
-</table><div class="keys" style="display:none" title="/index-test.php/docs?Docs_sort=lastUpdated&amp;Media_sort=uploadedBy"></div>
-</div>
-<div id="attachment-form-top"></div>
-<div id="attachment-form">
-    <div class="form">
-        <b>Attach a File</b><br />
-        <form enctype="multipart/form-data" id="attachment-form-form" action="/index-test.php/site/upload" method="post"><div class='row'><input type="hidden" value="docs" name="associationType" id="associationType" /><input type="hidden" name="associationId" id="associationId" /><input type="hidden" value="" name="attachmentText" id="attachmentText" /><select name="private" id="private">
-<option value="0">Public</option>
-<option value="1">Private</option>
-</select><input id="upload" onchange="checkName(this, &#039;#submitAttach&#039;)" type="file" value="" name="upload" /><input id="submitAttach" disabled="disabled" class="x2-button" style="display:inline" type="submit" name="yt1" value="Submit" /></div></form>    </div>
-</div>
-		</div>
+		<input class="x2-button" id="save-button" tabindex="24" type="submit" name="yt0" value="Update" />
+	</div>
+</form>		</div>
 	</div>
 </div>
 	<!--
@@ -1272,7 +1228,7 @@ jQuery('body').on('click','#yt8',function(){if(confirm('Are you sure you want to
 			Released as free software without warranties under the <a href="/LICENSE.txt" title="GNU Affero General Public License version 3">GNU Affero GPL v3</a>.
 		<br>
 	<a href="http://www.x2engine.com/"><img id="powered-by-x2engine" src="/images/powered_by_x2engine.png" alt="" /></a>	<div id="response-time">
-	76ms 7.5mb</div>
+	80ms 7.25mb</div>
 	
 </div>
 <a id="page-fader" class="x2-button"><span></span></a>
