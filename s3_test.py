@@ -5,7 +5,7 @@ import requests
 import time
 import copy
 from pprint import pprint
-from s3_function import self_checkIfCanLogin,self_post,self_get,self_gotsqlsyntaxerror,self_checkStillLoggedIn
+from s3_function import self_checkIfCanLogin,self_post,self_get,self_gotsqlsyntaxerror,self_checkStillLoggedIn,self_hijackSuccessful
 from difflib import Differ
 jsonform = []
 loginPayloadDict = {}
@@ -100,6 +100,7 @@ with open(runname+'.json') as data_file:
 						initialRequest = s.get(url,params = initialLoad, headers=initialheader, verify = False)
 						initialContent = initialRequest.content
 						initialTrip = time.time() - start
+						
 						print "-------------------Initial Request---------------------"
 						print url
 						print initialLoad
@@ -108,7 +109,6 @@ with open(runname+'.json') as data_file:
 						initialStatus = initialRequest.status_code
 						initialEndingUrl = initialRequest.url
 						for param in initialLoad:
-							
 							load = copy.deepcopy(initialLoad)
 							if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
 								load[param] =  ["'"]
@@ -118,12 +118,16 @@ with open(runname+'.json') as data_file:
 							for l in load:
 								newurl = newurl+l+"="+load[l][0]+"&"
 							newurl = newurl[0:-1]							
-							r = s.get(newurl, headers=initialheader, verify = False)
-							falseContent = r.content
-							newurl = url+"?"
-							for l in load:
-								newurl = newurl+l+"="+load[l][0]+"&"
-							newurl = newurl[0:-1]
+							falseRequest = s.get(newurl, headers=initialheader, verify = False)
+							if self_gotsqlsyntaxerror(falseRequest.content):
+								#got sql syntax error hack successful
+								#break for loop
+								initialUrl = copy.deepcopy(urls)
+								initialUrl["param"] = load
+								initialUrl["loginpayload"] = loginpayload
+								initialUrl["newurl"] = newurl
+								jsonform.append(initialUrl)		
+								break
 							for payload in payloads:
 								ifisSleepCommand = False
 								if "sleep" in payload:
@@ -152,56 +156,34 @@ with open(runname+'.json') as data_file:
 								# only if the content lenght is larger, and the status code is 200
 								# or the response time is much longger say 5 seconds for Time-based blind SQL injection
 								# we consider it's a valid attack
-								parsedInitialEndingUrl=initialEndingUrl
-								if("?" in initialEndingUrl):
-									index = int(initialEndingUrl.find("?"))
-									parsedInitialEndingUrl = initialEndingUrl[0:index]
-								parsedNewEndingUrl = newEndingUrl
-								if("?" in newEndingUrl):
-									index = int(newEndingUrl.find("?"))
-									#print index
-									parsedNewEndingUrl = newEndingUrl[0:index]
 															
-								print "------------------aaaaaaa----------------------"
+								#try:
+									#self_hijackSuccessful(initialRequest, newRequest, falseRequest, message =, payload, isPostRequest, initialTrip, newTrip, loginpayload={}, param="")
+								resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand,payload,False,initialTrip,trip,loginPayload,param)
+								print "------------------result----------------------"
+								issuccessful = resultArray[0]
+								print resultArray[1]
 								print newurl
-								print url
-								print length
-								print initialLength
-								print len(falseContent)
-								print len(r.content)
-								print urllib.unquote(payload).replace("+"," ")
-								print r.content.count(urllib.unquote(payload).replace("+"," "))
-								print r.content.count(payload)								
-								print (((length > initialLength) and (abs(length - initialLength)>10) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(param+"=")*10) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) and (abs(length - initialLength) > r.content.count(urllib.unquote(payload).replace("+"," "))*len(urllib.unquote(payload).replace("+"," "))) or ((trip - initialTrip) > 5 and ifisSleepCommand)) 
-								if param == "status_id":												
-									text_file = open("Output.txt", "w")
-									text_file.write(newContent)
-									text_file.close()
-									text_file = open("OutputInitial.txt", "w")
-									text_file.write(initialContent)
-									text_file.close()
-								print "--------------Yes--------------------------"
-								if ((falseContent != r.content) and abs(len(falseContent) -len(r.content))>len(payload)) and (((length > initialLength) and (abs(length - initialLength)>10) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(param+"=")*10) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) and (abs(length - initialLength) > r.content.count(urllib.unquote(payload).replace("+"," "))*len(urllib.unquote(payload).replace("+"," "))) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
+								#except:
+								#	issuccessful = False
+								print issuccessful
+								if issuccessful:
 									initialUrl = copy.deepcopy(urls)
 									initialUrl["param"] = load
 									initialUrl["loginpayload"] = loginpayload
 									initialUrl["newurl"] = newurl
-									jsonform.append(initialUrl)								
-									print "----------------------------------------"
-									print length
-									print initialLength
-									print parsedNewEndingUrl
-									print parsedInitialEndingUrl
-									print "----------------------------------------"				
+									jsonform.append(initialUrl)					
+
 									text_file = open("Output.txt", "w")
 									text_file.write(newContent)
 									text_file.close()
 									text_file = open("OutputInitial.txt", "w")
 									text_file.write(initialContent)
 									text_file.close()
-									text_file = open("OutputFalse.txt", "w")
-									text_file.write(falseContent)
-									text_file.close()
+								if self_gotsqlsyntaxerror(r.content):
+									#got sql syntax error hack successful
+									#break for loop
+									break
 						hackHeader = copy.deepcopy(initialheader)
 						hackHeader["referer"] = "some random header"
 						requestAfterHeaderChange = s.get(url,params = initialLoad, headers=hackHeader, verify = False)
@@ -256,9 +238,16 @@ with open(runname+'.json') as data_file:
 				for l in load:
 					newurl = newurl+l+"="+load[l][0]+"&"
 				newurl = newurl[0:-1]							
-				r = requests.get(newurl, headers=initialheader, verify = False)
-				falseContent = r.content
-				newurl = url+"?"
+				falseRequest = requests.get(newurl, headers=initialheader, verify = False)
+				if self_gotsqlsyntaxerror(falseRequest.content):
+					#got sql syntax error hack successful
+					#break for loop
+					initialUrl = copy.deepcopy(urls)
+					initialUrl["param"] = load
+					initialUrl["loginpayload"] = loginpayload
+					initialUrl["newurl"] = newurl
+					jsonform.append(initialUrl)		
+					break
 				for payload in payloads:
 					ifisSleepCommand = False
 					if "sleep" in payload:
@@ -281,43 +270,33 @@ with open(runname+'.json') as data_file:
 					r = requests.get(newurl, headers=initialheader, verify = False)
 					newContent = r.content
 					trip = time.time() - start
-					length = len(r.content)
-					status = r.status_code
-					newEndingUrl = r.url
-					# only if the content lenght is larger, and the status code is 200
-					# or the response time is much longger say 5 seconds for Time-based blind SQL injection
-					# we consider it's a valid attack
-					parsedInitialEndingUrl=initialEndingUrl
-					if("?" in initialEndingUrl):
-						index = int(initialEndingUrl.find("?"))
-						parsedInitialEndingUrl = initialEndingUrl[0:index]
-					parsedNewEndingUrl = newEndingUrl
-					if("?" in newEndingUrl):
-						index = int(newEndingUrl.find("?"))
-						#print index
-						parsedNewEndingUrl = newEndingUrl[0:index]
-					if ((falseContent != r.content) and abs(len(falseContent) -len(r.content))>len(payload)) and (((length > initialLength) and (abs(length - initialLength)>10) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(param+"=")*10) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) and (abs(length - initialLength) > r.content.count(urllib.unquote(payload).replace("+"," "))*len(urllib.unquote(payload).replace("+"," "))) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) and (self_checkStillLoggedIn(loginpayload,r.content)) and (not self_gotsqlsyntaxerror(r.content)):
+					print "-----------Result----------------"
+					try:
+						resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand, payload,False,initialTrip,trip,loginPayload,param)
+						issuccessful = resultArray[0]
+						print resultArray[1]
+					except:
+						issuccessful = False
+					print newurl
+					print issuccessful
+					if issuccessful:
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
 						initialUrl["loginpayload"] = loginpayload
 						initialUrl["newurl"] = newurl
-						jsonform.append(initialUrl)								
-						print "----------------------------------------"
-						print length
-						print initialLength
-						print parsedNewEndingUrl
-						print parsedInitialEndingUrl
-						print "----------------------------------------"			
+						jsonform.append(initialUrl)		
+
 						text_file = open("Output.txt", "w")
 						text_file.write(newContent)
 						text_file.close()
 						text_file = open("OutputInitial.txt", "w")
 						text_file.write(initialContent)
 						text_file.close()
-						text_file = open("OutputFalse.txt", "w")
-						text_file.write(falseContent)
-						text_file.close()
-				
+					
+					if self_gotsqlsyntaxerror(r.content):
+						#got sql syntax error hack successful
+						#break for loop
+						break
 			
 			hackHeader = copy.deepcopy(initialheader)
 			hackHeader["referer"] = "some random header"
@@ -370,8 +349,16 @@ with open(runname+'.json') as data_file:
 					load[param] =  ["'"]
 				else:
 					load[param][0] = load[param][0]+"'"					
-				r = requests.post(url, data=load, headers=defaultHeader, verify=False)
-				falseContent = r.content
+				falseRequest = requests.post(url, data=load, headers=defaultHeader, verify=False)
+
+				if self_gotsqlsyntaxerror(falseRequest.content):
+					#got sql syntax error hack successful
+					#break for loop
+					initialUrl = copy.deepcopy(urls)
+					initialUrl["param"] = load
+					initialUrl["loginpayload"] = loginpayload
+					jsonform.append(initialUrl)		
+					break
 				for payload in payloads:
 					#replace each parameter with the payload to test
 					#only test blind
@@ -392,42 +379,33 @@ with open(runname+'.json') as data_file:
 					newContent = r.content
 					trip = time.time() - start
 					length = len(r.content)
-					status = r.status_code
-					newEndingUrl = r.url
-					# only if the content lenght is larger, and the status code is 200
-					# or the response time is much longger say 5 seconds for Time-based blind SQL injection
-					# we consider it's a valid attack
-					parsedInitialEndingUrl=initialEndingUrl
-					if("?" in initialEndingUrl):
-						index = int(initialEndingUrl.find("?"))
-						parsedInitialEndingUrl = initialEndingUrl[0:index]
-					parsedNewEndingUrl = newEndingUrl
-					if("?" in newEndingUrl):
-						index = int(newEndingUrl.find("?"))
-						#print index
-						parsedNewEndingUrl = newEndingUrl[0:index]
-					if ((falseContent != r.content) and abs(len(falseContent) -len(r.content))>len(payload)) and (((length > initialLength) and (abs(length - initialLength)>10) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(param+"=")*10) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) and (abs(length - initialLength) > r.content.count(urllib.unquote(payload).replace("+"," "))*len(urllib.unquote(payload).replace("+"," "))) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) or self_gotsqlsyntaxerror(r.content):
+
+					print "-----------Result----------------"
+					try:
+						resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand,payload,True,initialTrip,trip,loginPayload,param)
+						issuccessful = resultArray[0]
+						print resultArray[1]
+					except:
+						issuccessful = False
+					print issuccessful
+					if issuccessful:
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
 						initialUrl["loginpayload"] = loginpayload
-						initialUrl["newurl"] = newurl
-						jsonform.append(initialUrl)								
-						print "----------------------------------------"
-						print length
-						print initialLength
-						print parsedNewEndingUrl
-						print parsedInitialEndingUrl
-						print "----------------------------------------"				
+						jsonform.append(initialUrl)				
+
 						text_file = open("Output.txt", "w")
 						text_file.write(newContent)
 						text_file.close()
 						text_file = open("OutputInitial.txt", "w")
 						text_file.write(initialContent)
 						text_file.close()
-						text_file = open("OutputFalse.txt", "w")
-						text_file.write(falseContent)
-						text_file.close()
-			
+					
+					if self_gotsqlsyntaxerror(r.content):
+						#got sql syntax error hack successful
+						#break for loop
+						break
+
 			hackHeader = copy.deepcopy(defaultHeader)
 			hackHeader["referer"] = "some random header"
 			requestAfterHeaderChange = requests.post(url, data=initialLoad, headers=hackHeader, verify=False)
@@ -443,7 +421,6 @@ with open(runname+'.json') as data_file:
 						initialUrl = copy.deepcopy(urls)
 						initialUrl["param"] = load
 						initialUrl["loginpayload"] = loginpayload
-						initialUrl["newurl"] = newurl
 						initialUrl["headers"] = hackHeader
 						jsonform.append(initialUrl)		
 	data["urls"] = copy.deepcopy(urlsToProcess)
@@ -491,8 +468,24 @@ with open(runname+'.json') as data_file:
 								load[param] =  ["'"]
 							else:
 								load[param][0] = load[param][0]+"'"					
-							r = s.post(url,data = load, headers=defaultHeader, verify = False)
-							falseContent = r.content
+							falseRequest = s.post(url,data = load, headers=defaultHeader, verify = False)
+							
+							if self_gotsqlsyntaxerror(falseRequest.content):
+								#got sql syntax error hack successful
+								#break for loop
+								initialUrl = copy.deepcopy(urls)
+								initialUrl["param"] = load
+								initialUrl["loginpayload"] = loginpayload
+								jsonform.append(initialUrl)	
+								break
+							if self_gotsqlsyntaxerror(falseRequest.content):
+								#got sql syntax error hack successful
+								#break for loop
+								initialUrl = copy.deepcopy(urls)
+								initialUrl["param"] = load
+								initialUrl["loginpayload"] = loginpayload
+								jsonform.append(initialUrl)	
+								break
 							for payload in payloads:
 								#only test blind sql for post								
 								ifisSleepCommand = False
@@ -512,48 +505,33 @@ with open(runname+'.json') as data_file:
 								newContent = r.content
 								trip = time.time() - start
 								length = len(r.content)
-								status = r.status_code
-								newEndingUrl = r.url
-								# only if the content lenght is larger, and the status code is 200
-								# or the response time is much longger say 5 seconds for Time-based blind SQL injection
-								# we consider it's a valid attack
-								parsedInitialEndingUrl=initialEndingUrl
-								if("?" in initialEndingUrl):
-									index = int(initialEndingUrl.find("?"))
-									parsedInitialEndingUrl = initialEndingUrl[0:index]
-								parsedNewEndingUrl = newEndingUrl
-								if("?" in newEndingUrl):
-									index = int(newEndingUrl.find("?"))
-									#print index
-									parsedNewEndingUrl = newEndingUrl[0:index]
-															
-								print "------------------aaaaaaa----------------------"
-								print length
-								print initialLength
-								print (not payload in r.content)
-								print self_gotsqlsyntaxerror(r.content)
-								print r.content.count(payload)
-								print payload
-								print len(payload)
-								print length - initialLength
-								print "----------------------------------------"
-								if ((falseContent != r.content) and abs(len(falseContent) -len(r.content))>len(payload)) and (((length > initialLength) and (abs(length - initialLength)>10) and (status == 200) and not ifisSleepCommand) and(abs(length - initialLength) > r.content.count(param+"=")*10) and(abs(length - initialLength) > r.content.count(payload)*len(payload)) and (abs(length - initialLength) > r.content.count(urllib.unquote(payload).replace("+"," "))*len(urllib.unquote(payload).replace("+"," "))) or ((trip - initialTrip) > 5 and ifisSleepCommand)) and (parsedNewEndingUrl == parsedInitialEndingUrl) or self_gotsqlsyntaxerror(r.content):
+								try:
+									resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand,payload,True,initialTrip,trip,loginPayload,param)
+									issuccessful = resultArray[0]
+									print resultArray[1]
+								except:
+									issuccessful = False
+
+								print "-----------Result----------------"
+								print issuccessful
+								if issuccessful:
 									initialUrl = copy.deepcopy(urls)
 									initialUrl["param"] = load
 									initialUrl["loginpayload"] = loginpayload
-									jsonform.append(initialUrl)								
-									print "----------------------------------------"
-									print length
-									print initialLength
-									print parsedNewEndingUrl
-									print parsedInitialEndingUrl
-									print "----------------------------------------"				
+									jsonform.append(initialUrl)				
+
 									text_file = open("Output.txt", "w")
 									text_file.write(newContent)
 									text_file.close()
 									text_file = open("OutputInitial.txt", "w")
 									text_file.write(initialContent)
 									text_file.close()
+
+								if self_gotsqlsyntaxerror(r.content):
+									#got sql syntax error hack successful
+									#break for loop
+									break
+
 						hackHeader = copy.deepcopy(defaultHeader)
 						hackHeader["referer"] = "some random header"
 						requestAfterHeaderChange = s.post(url, data=initialLoad, headers=hackHeader, verify=False)
@@ -569,7 +547,6 @@ with open(runname+'.json') as data_file:
 									initialUrl = copy.deepcopy(urls)
 									initialUrl["param"] = load
 									initialUrl["loginpayload"] = loginpayload
-									initialUrl["newurl"] = newurl
 									initialUrl["headers"] = hackHeader
 									jsonform.append(initialUrl)		
 	data["urls"] = copy.deepcopy(urlsToProcess)

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
+        <title>Home - phpBugTracker</title>
+
+        <link rel="stylesheet" type="text/css" href="styles/default.css">
+        <link rel="stylesheet" type="text/css" href="styles/print.css" media="print">
+
+        <link rel="alternate stylesheet" type="text/css" href="styles/default.css" title="default">
+        <link rel="alternate stylesheet" type="text/css" href="styles/black.css"   title="black">
+        <link rel="alternate stylesheet" type="text/css" href="styles/print.css"   title="print">
+
+        <META http-equiv="Content-Type" content="text/html; charset=utf-8">    </head>
+    <body>
+                <div class="NavBar">
+            <div class="nav FixedWidth">
+                <div class="header_line1">
+                    <div class="header_image">
+                        <div class="PhpBugTracker">phpBugTracker</div>
+                    </div>
+                    <div class="header_search">
+                        <form action="bug.php">
+                            <input type="hidden" name="op" value="show">
+                            Find Bug                            <input name="bugid" type="text" id="bugid" size="5">
+                            &nbsp;
+                        </form>
+                    </div>
+                </div>
+                <ul class="tabnav">
+                    <li><a href="index.php" style="border: none;">Home</a></li>
+                    <li><a href="bug.php?op=add">Add a New Bug</a></li>
+                    <li><a href="query.php?op=query">Basic Query</a></li>
+                    <li><a href="query.php?op=query&amp;form=advanced">Advanced Query</a></li>
+                    <li><a href="report.php">View Reports</a></li>
+                                        <li><a href="docs/html/userguide.html">Help</a></li>
+                    <li><a href="admin/project.php">Admin</a></li>                </ul>
+            </div>
+        </div>
+        <div class="ContentBar">
+                            <div class="personalarea FixedWidth">
+                    <form method="post" action="/index.php">
+                        &nbsp;
+                                                                                    Bugs assigned to me: <a href="query.php?op=mybugs&amp;assignedto=1&amp;open=1" title="Open">0</a> / <a href="query.php?op=mybugs&amp;assignedto=1&amp;open=0" title="Closed">0</a> |
+                                                        Reported by me: <a href="query.php?op=mybugs&amp;reportedby=1&amp;open=1" title="Open">0</a> / <a href="query.php?op=mybugs&amp;reportedby=1&amp;open=0" title="Closed">0</a>
+                            | Bookmarks: <a href="query.php?op=mybugs&amp;bookmarked=1&amp;open=1" title="Open">0</a> / <a href="query.php?op=mybugs&amp;bookmarked=1&amp;open=0" title="Closed">0</a>
+                            | <a href="user.php">Personal Page</a>
+                            | <a href="logout.php">Logout admin@admin.com</a>
+                                                &nbsp;
+                    </form>
+                </div>
+                                    <div class="FixedWidth" style="padding: 5px;">
+                <table border=0 width="100%">
+    <tr>
+        <td valign="top">
+            <b>Most recently changed bugs</b>
+            <br>
+            No bugs found            <br><br>
+            <b>Most recently closed bugs</b>
+            <br>
+            No bugs found                    </td>
+        <td valign="top" align="right"> 
+                            <b>Quick Stats</b>
+                <br>
+                <table class="bordertable">
+                    <tr>
+                        <th>Status</th>
+                        <th># bugs</th>
+                    </tr>
+                                                                <tr>
+                            <td><a href="query.php?op=doquery&amp;status[]=1">New Report</a></td>
+                            <td align="center">0</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="query.php?op=doquery&amp;status[]=2">Reviewed</a></td>
+                            <td align="center">0</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="query.php?op=doquery&amp;status[]=3">Assigned</a></td>
+                            <td align="center">0</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="query.php?op=doquery&amp;status[]=4">Needs QA</a></td>
+                            <td align="center">0</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="query.php?op=doquery&amp;status[]=5">Verified</a></td>
+                            <td align="center">0</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="query.php?op=doquery&amp;status[]=6">Reopened</a></td>
+                            <td align="center">0</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="query.php?op=doquery&amp;status[]=7">Closed</a></td>
+                            <td align="center">0</td>
+                        </tr>
+                                    </table>
+                    </td>
+    </tr>
+</table>
+<br/>
+    <table class="bordertable" style="width:99%; margin: 0 auto;">
+        <tr>
+            <th>Project</th><th>Open</th><th>Fixed</th><th>Not a bug</th><th>Won't Fix</th><th>Deferred</th><th>Works for me</th><th>Duplicate</th><th>Total</th>        </tr>
+            </table>
+    <b>Add a new bug</b><br/><a href="bug.php?op=add&amp;project=1">test project</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="bug.php?op=add&amp;project=2">2</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="bug.php?op=add&amp;project=3">1</a>&nbsp;&nbsp;|&nbsp;&nbsp;<br/>
+    <br/>
+    <b>Basic Query</b><br/><a href="query.php?op=doquery&amp;projects=1&amp;open=1&amp;order=priority_name&amp;sort=desc">test project</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="query.php?op=doquery&amp;projects=2&amp;open=1&amp;order=priority_name&amp;sort=desc">2</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="query.php?op=doquery&amp;projects=3&amp;open=1&amp;order=priority_name&amp;sort=desc">1</a>&nbsp;&nbsp;|&nbsp;&nbsp;<br/>
+            </div>
+        </div>
+
+    </body>
+</html>

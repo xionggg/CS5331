@@ -1,5 +1,8 @@
 import requests
+import re
 from difflib import Differ
+import urllib
+titleRe = re.compile("<title.*?>(.+?)</title>")
 def self_checkIfCanLogin(payload, loginurl, header):
 	request = requests.post(loginurl, data=payload, headers=header, verify=False)
 	content = request.content.lower().replace(" ", "")
@@ -34,6 +37,84 @@ def self_get(load, url, header):
 	return request
 	
 def self_gotsqlsyntaxerror(content):
-	if ("You have an error in your SQL syntax" in content) | ("Invalid id" in content):	
+	if ("You have an error in your SQL syntax" in content) or ("Invalid id" in content) or ("syntax error" in content.lower()):	
 		return True
 	return False
+
+def self_hijackSuccessful(initialRequest, newRequest, falseRequest, isSleepCommand, payload, isPostRequest, initialTrip, newTrip, loginpayload={}, param=""):
+	try:
+		count = newRequest.content.count(urllib.unquote(payload).replace("+"," "))
+		lenthOfDecodedPayload = len(urllib.unquote(payload).replace("+"," "))
+		print "payload"
+	except:
+		count = 0
+		lenthOfDecodedPayload = 0
+	print "count of encoded payload: "+str(count)
+	try:
+		countBeforeDecode = newRequest.content.count(payload)
+	except:
+		countBeforeDecode = 0
+	print "count of pure payload: "+str(countBeforeDecode)
+	print "pure payload length "+str(len(payload))
+	try:
+		initialTitle = titleRe.search(initialRequest.content).group(1)
+		newTitle = titleRe.search(newRequest.content).group(1)
+		falseTitle = titleRe.search(falseRequest.content).group(1)
+	except:
+		initialTitle = ""
+		newTitle = ""
+		falseTitle = ""
+	print "initial Title: "+str(initialTitle)
+	print "new Title: "+str(newTitle)
+	print "false Title: "+str(falseTitle)
+	try:
+		countOfParam = newRequest.content.count(param+"=")
+	except:
+		countOfParam = 0
+	try:
+		countOfParam += newRequest.content.count('name= "'+param+'"')
+		countOfParam += newRequest.content.count('name = "'+param+'"')
+		countOfParam += newRequest.content.count('name="'+param+'"')
+	except:
+		countOfParam += 0
+	print "param is "+param
+	print "count of param: "+str(countOfParam)
+	print "content length difference: "+ str(abs(len(newRequest.content)-len(initialRequest.content)))
+	if newRequest.status_code != 200:
+		message = "Status code not 200"
+		return [False,message]
+	if isSleepCommand and (newTrip-initialTrip)>5:
+		message = "Is sleep command and the response time diff larger than 5 second"
+		return [True,message]
+	if(self_parseURL(initialRequest.url)!=self_parseURL(falseRequest.url)) and (self_parseURL(newRequest.url) == self_parseURL(falseRequest.url)):
+		message = "Suspect page was redirected to default error page based on url"
+		return [False,message]
+	if (falseTitle!= initialTitle) and (newTitle == falseTitle):
+		message = "Suspect page was redirected to default error page based on url"
+		return [False,message]
+	if(falseRequest.content == newRequest.content):
+		message = "Content is almost the same with false response content"
+		return [False,message]
+	if abs(len(newRequest.content)-len(initialRequest.content)) < (count*lenthOfDecodedPayload + countOfParam * 20 + countBeforeDecode*len(payload)):
+		message = "url encoded payload found in new request, and the content length diff is not enough"
+		return [False,message]
+	# if(countOfParam>0) and (abs(len(newRequest.content)-len(initialRequest.content)) < countOfParam * 20):
+	# 	message = "parameter name found, and the content length diff is not enough"
+	# 	return [False,message]
+	# if(countBeforeDecode>0) and (abs(len(newRequest.content)-len(initialRequest.content)) < countBeforeDecode*len(payload)):
+	# 	message = "pure payload found in new request, and the content length diff is not enough"
+	# 	return [False,message]
+	#if not isPostRequest:
+	#	if self_gotsqlsyntaxerror(newRequest.content):	
+	#		message = "SQL Syntax error found"
+	#		return [False,message]
+	if not self_checkStillLoggedIn(loginpayload,newRequest.content):
+		message = "User was logged out"
+		return [False,message]
+	message = "Successfully hijacked"
+	return [True,message]
+
+def self_parseURL(url):
+	if "?" in url:
+		index = int(url.find("?"))
+		return url[0:index]
