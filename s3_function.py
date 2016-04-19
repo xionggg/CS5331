@@ -6,9 +6,11 @@ titleRe = re.compile("<title.*?>(.+?)</title>")
 def self_checkIfCanLogin(payload, loginurl, header):
 	request = requests.post(loginurl, data=payload, headers=header, verify=False)
 	content = request.content.lower().replace(" ", "")
-	#if ("logout" in content) and (request.status_code == 200):
+	if ("logout" in content) and (request.status_code == 200):
+		return True
 	for param in payload:
-		if ("name='"+param+"'" in content) or ('name="'+param+'"' in content):
+		print param
+		if ("name='"+str(param)+"'" in content) or ('name="'+str(param)+'"' in content):
 			return False
 	return True
 	#else:
@@ -37,7 +39,7 @@ def self_get(load, url, header):
 	return request
 	
 def self_gotsqlsyntaxerror(content):
-	if ("You have an error in your SQL syntax" in content) or ("Invalid id" in content) or ("syntax error" in content.lower()):	
+	if ("You have an error in your SQL syntax" in content) or ("syntax error" in content.lower()):	
 		return True
 	return False
 
@@ -86,6 +88,9 @@ def self_hijackSuccessful(initialRequest, newRequest, falseRequest, isSleepComma
 	if isSleepCommand and (newTrip-initialTrip)>5:
 		message = "Is sleep command and the response time diff larger than 5 second"
 		return [True,message]
+	if (not isSleepCommand) and (len(newRequest.content) <= len(initialRequest.content)):
+		message = "Content is the same or even smaller"
+		return [False,message]
 	if(self_parseURL(initialRequest.url)!=self_parseURL(falseRequest.url)) and (self_parseURL(newRequest.url) == self_parseURL(falseRequest.url)):
 		message = "Suspect page was redirected to default error page based on url"
 		return [False,message]
@@ -95,7 +100,7 @@ def self_hijackSuccessful(initialRequest, newRequest, falseRequest, isSleepComma
 	if(falseRequest.content == newRequest.content):
 		message = "Content is almost the same with false response content"
 		return [False,message]
-	if abs(len(newRequest.content)-len(initialRequest.content)) < (count*lenthOfDecodedPayload + countOfParam * 20 + countBeforeDecode*len(payload)):
+	if len(newRequest.content)-len(initialRequest.content) < (count*lenthOfDecodedPayload + countOfParam * 20 + countBeforeDecode*len(payload)):
 		message = "url encoded payload found in new request, and the content length diff is not enough"
 		return [False,message]
 	# if(countOfParam>0) and (abs(len(newRequest.content)-len(initialRequest.content)) < countOfParam * 20):

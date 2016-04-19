@@ -5,10 +5,11 @@ import requests
 import time
 import copy
 from pprint import pprint
-from s3_function import self_checkIfCanLogin,self_post,self_get,self_gotsqlsyntaxerror,self_checkStillLoggedIn,self_hijackSuccessful
+from s3_function import self_checkIfCanLogin,self_post,self_get,self_gotsqlsyntaxerror,self_checkStillLoggedIn,self_hijackSuccessful,self_parseURL
 from difflib import Differ
 jsonform = []
 loginPayloadDict = {}
+vunlerableUrlWithParam = {}
 runname=sys.argv[1:][0]
 defaultHeader = {
 			"Referer": "https://app5.com/www/index.php",
@@ -109,6 +110,12 @@ with open(runname+'.json') as data_file:
 						initialStatus = initialRequest.status_code
 						initialEndingUrl = initialRequest.url
 						for param in initialLoad:
+							parsedUrl = self_parseURL(initialRequest.url)
+							if parsedUrl in vunlerableUrlWithParam:
+								listOfParam = vunlerableUrlWithParam[parsedUrl]
+								if param in listOfParam:
+									#this param with this url already identified as vunlerable, skip the rest of the test
+									continue
 							load = copy.deepcopy(initialLoad)
 							if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
 								load[param] =  ["'"]
@@ -122,12 +129,21 @@ with open(runname+'.json') as data_file:
 							if self_gotsqlsyntaxerror(falseRequest.content):
 								#got sql syntax error hack successful
 								#break for loop
-								initialUrl = copy.deepcopy(urls)
-								initialUrl["param"] = load
-								initialUrl["loginpayload"] = loginpayload
-								initialUrl["newurl"] = newurl
-								jsonform.append(initialUrl)		
-								break
+								if parsedUrl in vunlerableUrlWithParam:
+									listOfParam = vunlerableUrlWithParam[parsedUrl]
+									if param not in listOfParam:
+										listOfParam.append(param)
+								else:
+									listOfParam = [param]
+									vunlerableUrlWithParam[parsedUrl] = listOfParam
+									
+
+									initialUrl = copy.deepcopy(urls)
+									initialUrl["param"] = load
+									initialUrl["loginpayload"] = loginpayload
+									initialUrl["newurl"] = newurl
+									jsonform.append(initialUrl)		
+								continue
 							for payload in payloads:
 								ifisSleepCommand = False
 								if "sleep" in payload:
@@ -156,7 +172,30 @@ with open(runname+'.json') as data_file:
 								# only if the content lenght is larger, and the status code is 200
 								# or the response time is much longger say 5 seconds for Time-based blind SQL injection
 								# we consider it's a valid attack
-															
+								if self_gotsqlsyntaxerror(r.content):
+									#got sql syntax error hack successful
+									#break for loop
+									parsedUrl = self_parseURL(initialRequest.url)
+									if parsedUrl in vunlerableUrlWithParam:
+										listOfParam = vunlerableUrlWithParam[parsedUrl]
+										if param not in listOfParam:
+											listOfParam.append(param)
+									else:
+										listOfParam = [param]
+										vunlerableUrlWithParam[parsedUrl] = listOfParam
+										initialUrl = copy.deepcopy(urls)
+										initialUrl["param"] = load
+										initialUrl["loginpayload"] = loginpayload
+										initialUrl["newurl"] = newurl
+										jsonform.append(initialUrl)					
+
+										text_file = open("Output.txt", "w")
+										text_file.write(newContent)
+										text_file.close()
+										text_file = open("OutputInitial.txt", "w")
+										text_file.write(initialContent)
+										text_file.close()
+									continue		
 								#try:
 									#self_hijackSuccessful(initialRequest, newRequest, falseRequest, message =, payload, isPostRequest, initialTrip, newTrip, loginpayload={}, param="")
 								resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand,payload,False,initialTrip,trip,loginPayload,param)
@@ -180,10 +219,7 @@ with open(runname+'.json') as data_file:
 									text_file = open("OutputInitial.txt", "w")
 									text_file.write(initialContent)
 									text_file.close()
-								if self_gotsqlsyntaxerror(r.content):
-									#got sql syntax error hack successful
-									#break for loop
-									break
+
 						hackHeader = copy.deepcopy(initialheader)
 						hackHeader["referer"] = "some random header"
 						requestAfterHeaderChange = s.get(url,params = initialLoad, headers=hackHeader, verify = False)
@@ -228,7 +264,13 @@ with open(runname+'.json') as data_file:
 			initialLength = len(initialRequest.content)#int(initialRequest.headers["Content-Length"])
 			initialStatus = initialRequest.status_code
 			initialEndingUrl = initialRequest.url
-			for param in initialLoad:
+			parsedUrl = self_parseURL(initialEndingUrl)
+			for param in initialLoad:	
+				if parsedUrl in vunlerableUrlWithParam:
+					listOfParam = vunlerableUrlWithParam[parsedUrl]
+					if param in listOfParam:
+						#this param with this url already identified as vunlerable, skip the rest of the test
+						continue
 				load = copy.deepcopy(initialLoad)
 				if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
 					load[param] =  ["'"]
@@ -242,12 +284,20 @@ with open(runname+'.json') as data_file:
 				if self_gotsqlsyntaxerror(falseRequest.content):
 					#got sql syntax error hack successful
 					#break for loop
-					initialUrl = copy.deepcopy(urls)
-					initialUrl["param"] = load
-					initialUrl["loginpayload"] = loginpayload
-					initialUrl["newurl"] = newurl
-					jsonform.append(initialUrl)		
-					break
+					if parsedUrl in vunlerableUrlWithParam:
+						listOfParam = vunlerableUrlWithParam[parsedUrl]
+						if param not in listOfParam:
+							listOfParam.append(param)
+					else:
+						listOfParam = [param]
+						vunlerableUrlWithParam[parsedUrl] = listOfParam
+						
+						initialUrl = copy.deepcopy(urls)
+						initialUrl["param"] = load
+						initialUrl["loginpayload"] = loginpayload
+						initialUrl["newurl"] = newurl
+						jsonform.append(initialUrl)		
+					continue
 				for payload in payloads:
 					ifisSleepCommand = False
 					if "sleep" in payload:
@@ -270,6 +320,30 @@ with open(runname+'.json') as data_file:
 					r = requests.get(newurl, headers=initialheader, verify = False)
 					newContent = r.content
 					trip = time.time() - start
+					if self_gotsqlsyntaxerror(r.content):
+						#got sql syntax error hack successful
+						#break for loop
+						parsedUrl = self_parseURL(initialRequest.url)
+						if parsedUrl in vunlerableUrlWithParam:
+							listOfParam = vunlerableUrlWithParam[parsedUrl]
+							if param not in listOfParam:
+								listOfParam.append(param)
+						else:
+							listOfParam = [param]
+							vunlerableUrlWithParam[parsedUrl] = listOfParam
+							initialUrl = copy.deepcopy(urls)
+							initialUrl["param"] = load
+							initialUrl["loginpayload"] = loginpayload
+							initialUrl["newurl"] = newurl
+							jsonform.append(initialUrl)					
+
+							text_file = open("Output.txt", "w")
+							text_file.write(newContent)
+							text_file.close()
+							text_file = open("OutputInitial.txt", "w")
+							text_file.write(initialContent)
+							text_file.close()
+						continue	
 					print "-----------Result----------------"
 					try:
 						resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand, payload,False,initialTrip,trip,loginPayload,param)
@@ -292,11 +366,6 @@ with open(runname+'.json') as data_file:
 						text_file = open("OutputInitial.txt", "w")
 						text_file.write(initialContent)
 						text_file.close()
-					
-					if self_gotsqlsyntaxerror(r.content):
-						#got sql syntax error hack successful
-						#break for loop
-						break
 			
 			hackHeader = copy.deepcopy(initialheader)
 			hackHeader["referer"] = "some random header"
@@ -323,13 +392,14 @@ with open(runname+'.json') as data_file:
 	#process those post parameter with out login required
 	for urls in data["urls"]:	
 		url = urls["url"]
+		initialheader = defaultHeader
 		if(urls["type"]=="POST") and (urls["loginrequired"] == "false") and (url not in loginPayloadDict):
 			urlsToProcess.remove(urls)			
 			# An authorised request.
 			initialLoad = copy.deepcopy(urls["param"])	
 			# put some initial value to the post
 			for param in initialLoad:
-				if (not initialLoad[param]) | (initialLoad[param][0] is None) | (initialLoad[param][0] == ""):
+				if (not initialLoad[param]) | (initialLoad[param][0] is None) | (initialLoad[param][0] == "") | (initialLoad[param][0] == "None"):
 					initialLoad[param] =  ["a"]						
 			start = time.time()
 			initialRequest = requests.post(url, params=load, headers=defaultHeader, verify=False)
@@ -343,7 +413,13 @@ with open(runname+'.json') as data_file:
 			initialLength = len(initialRequest.content)#int(initialRequest.headers["Content-Length"])
 			initialStatus = initialRequest.status_code
 			initialEndingUrl = initialRequest.url
+			parsedUrl = self_parseURL(initialRequest.url)
 			for param in initialLoad:
+				if parsedUrl in vunlerableUrlWithParam:
+					listOfParam = vunlerableUrlWithParam[parsedUrl]
+					if param in listOfParam:
+						#this param with this url already identified as vunlerable, skip the rest of the test
+						continue
 				load = copy.deepcopy(initialLoad)				
 				if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
 					load[param] =  ["'"]
@@ -354,11 +430,20 @@ with open(runname+'.json') as data_file:
 				if self_gotsqlsyntaxerror(falseRequest.content):
 					#got sql syntax error hack successful
 					#break for loop
-					initialUrl = copy.deepcopy(urls)
-					initialUrl["param"] = load
-					initialUrl["loginpayload"] = loginpayload
-					jsonform.append(initialUrl)		
-					break
+					parsedUrl = self_parseURL(initialRequest.url)
+					if parsedUrl in vunlerableUrlWithParam:
+						listOfParam = vunlerableUrlWithParam[parsedUrl]
+						if param not in listOfParam:
+							listOfParam.append(param)
+					else:
+						listOfParam = [param]
+						vunlerableUrlWithParam[parsedUrl] = listOfParam
+						
+						initialUrl = copy.deepcopy(urls)
+						initialUrl["param"] = load
+						initialUrl["loginpayload"] = loginpayload
+						jsonform.append(initialUrl)		
+					continue
 				for payload in payloads:
 					#replace each parameter with the payload to test
 					#only test blind
@@ -377,6 +462,30 @@ with open(runname+'.json') as data_file:
 					start = time.time()
 					r = requests.post(url, data=load, headers=defaultHeader, verify=False)
 					newContent = r.content
+					if self_gotsqlsyntaxerror(r.content):
+						#got sql syntax error hack successful
+						#break for loop
+						parsedUrl = self_parseURL(initialRequest.url)
+						if parsedUrl in vunlerableUrlWithParam:
+							listOfParam = vunlerableUrlWithParam[parsedUrl]
+							if param not in listOfParam:
+								listOfParam.append(param)
+						else:
+							listOfParam = [param]
+							vunlerableUrlWithParam[parsedUrl] = listOfParam
+							initialUrl = copy.deepcopy(urls)
+							initialUrl["param"] = load
+							initialUrl["loginpayload"] = loginpayload
+							initialUrl["newurl"] = newurl
+							jsonform.append(initialUrl)					
+
+							text_file = open("Output.txt", "w")
+							text_file.write(newContent)
+							text_file.close()
+							text_file = open("OutputInitial.txt", "w")
+							text_file.write(initialContent)
+							text_file.close()
+						continue	
 					trip = time.time() - start
 					length = len(r.content)
 
@@ -401,10 +510,6 @@ with open(runname+'.json') as data_file:
 						text_file.write(initialContent)
 						text_file.close()
 					
-					if self_gotsqlsyntaxerror(r.content):
-						#got sql syntax error hack successful
-						#break for loop
-						break
 
 			hackHeader = copy.deepcopy(defaultHeader)
 			hackHeader["referer"] = "some random header"
@@ -429,6 +534,7 @@ with open(runname+'.json') as data_file:
 	#process those post parameter with login required
 	for urls in data["urls"]:	
 		url = urls["url"]
+		initialheader = defaultHeader
 		if(urls["type"]=="POST") and (urls["loginrequired"] == "true") and (url not in loginPayloadDict):
 			urlsToProcess.remove(urls)
 			loginurl = urls["loginurl"]
@@ -448,7 +554,10 @@ with open(runname+'.json') as data_file:
 						initialLoad = copy.deepcopy(urls["param"])	
 						# put some initial value to the post
 						for param in initialLoad:
-							if (not initialLoad[param]) | (initialLoad[param][0] is None) | (initialLoad[param][0] == ""):
+							print initialLoad
+							print param
+							print initialLoad[param]
+							if (not initialLoad[param]) | (initialLoad[param][0] is None) | (initialLoad[param][0] == "") | (initialLoad[param][0] == "None"):
 								initialLoad[param] =  ["a"]							
 						start = time.time()
 						initialRequest = s.post(url,data = initialLoad, headers=defaultHeader, verify = False)
@@ -462,30 +571,37 @@ with open(runname+'.json') as data_file:
 						initialLength = len(initialRequest.content)#int(initialRequest.headers["Content-Length"])
 						initialStatus = initialRequest.status_code
 						initialEndingUrl = initialRequest.url
-						for param in initialLoad:						
+						parsedUrl = self_parseURL(initialRequest.url)
+						for param in initialLoad:			
+							if parsedUrl in vunlerableUrlWithParam:
+								listOfParam = vunlerableUrlWithParam[parsedUrl]
+								if param in listOfParam:
+									#this param with this url already identified as vunlerable, skip the rest of the test
+									continue			
 							load = copy.deepcopy(initialLoad)				
 							if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
 								load[param] =  ["'"]
 							else:
 								load[param][0] = load[param][0]+"'"					
 							falseRequest = s.post(url,data = load, headers=defaultHeader, verify = False)
-							
+
 							if self_gotsqlsyntaxerror(falseRequest.content):
 								#got sql syntax error hack successful
 								#break for loop
-								initialUrl = copy.deepcopy(urls)
-								initialUrl["param"] = load
-								initialUrl["loginpayload"] = loginpayload
-								jsonform.append(initialUrl)	
-								break
-							if self_gotsqlsyntaxerror(falseRequest.content):
-								#got sql syntax error hack successful
-								#break for loop
-								initialUrl = copy.deepcopy(urls)
-								initialUrl["param"] = load
-								initialUrl["loginpayload"] = loginpayload
-								jsonform.append(initialUrl)	
-								break
+								parsedUrl = self_parseURL(initialRequest.url)
+								if parsedUrl in vunlerableUrlWithParam:
+									listOfParam = vunlerableUrlWithParam[parsedUrl]
+									if param not in listOfParam:
+										listOfParam.append(param)
+								else:
+									listOfParam = [param]
+									vunlerableUrlWithParam[parsedUrl] = listOfParam
+									
+									initialUrl = copy.deepcopy(urls)
+									initialUrl["param"] = load
+									initialUrl["loginpayload"] = loginpayload
+									jsonform.append(initialUrl)	
+								continue
 							for payload in payloads:
 								#only test blind sql for post								
 								ifisSleepCommand = False
@@ -502,6 +618,30 @@ with open(runname+'.json') as data_file:
 									load[param][0] =  load[param][0]+payload
 								start = time.time()
 								r = s.post(url,data = load, headers=defaultHeader, verify = False)
+								if self_gotsqlsyntaxerror(r.content):
+									#got sql syntax error hack successful
+									#break for loop
+									parsedUrl = self_parseURL(initialRequest.url)
+									if parsedUrl in vunlerableUrlWithParam:
+										listOfParam = vunlerableUrlWithParam[parsedUrl]
+										if param not in listOfParam:
+											listOfParam.append(param)
+									else:
+										listOfParam = [param]
+										vunlerableUrlWithParam[parsedUrl] = listOfParam
+										initialUrl = copy.deepcopy(urls)
+										initialUrl["param"] = load
+										initialUrl["loginpayload"] = loginpayload
+										initialUrl["newurl"] = newurl
+										jsonform.append(initialUrl)					
+
+										text_file = open("Output.txt", "w")
+										text_file.write(newContent)
+										text_file.close()
+										text_file = open("OutputInitial.txt", "w")
+										text_file.write(initialContent)
+										text_file.close()
+									continue	
 								newContent = r.content
 								trip = time.time() - start
 								length = len(r.content)
@@ -526,11 +666,6 @@ with open(runname+'.json') as data_file:
 									text_file = open("OutputInitial.txt", "w")
 									text_file.write(initialContent)
 									text_file.close()
-
-								if self_gotsqlsyntaxerror(r.content):
-									#got sql syntax error hack successful
-									#break for loop
-									break
 
 						hackHeader = copy.deepcopy(defaultHeader)
 						hackHeader["referer"] = "some random header"
