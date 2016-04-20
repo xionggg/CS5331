@@ -460,7 +460,7 @@ with open("../results/"+runname+'.json') as data_file:
 					ifisSleepCommand = False
 					if "sleep" in payload:
 						ifisSleepCommand = True
-						load = copy.deepcopy(initialLoad)
+					load = copy.deepcopy(initialLoad)
 					#print load[param]
 					#print param
 					#print type(load[param])
@@ -469,6 +469,9 @@ with open("../results/"+runname+'.json') as data_file:
 					else:
 						load[param][0] = load[param][0]+payload
 					start = time.time()
+					print "-----------Result----------------"
+					print load
+
 					r = requests.post(url, data=load, headers=defaultHeader, verify=False)
 					newContent = r.content
 					if self_gotsqlsyntaxerror(r.content):
