@@ -112,8 +112,8 @@ with open("../results/"+runname+'.json') as data_file:
 						initialLength = len(initialRequest.content)#int(initialRequest.headers["Content-Length"])
 						initialStatus = initialRequest.status_code
 						initialEndingUrl = initialRequest.url
+						parsedUrl = self_parseURL(initialRequest.url)
 						for param in initialLoad:
-							parsedUrl = self_parseURL(initialRequest.url)
 							if parsedUrl in vunlerableUrlWithParam:
 								listOfParam = vunlerableUrlWithParam[parsedUrl]
 								if param in listOfParam:
@@ -151,6 +151,11 @@ with open("../results/"+runname+'.json') as data_file:
 									jsonform.append(initialUrl)		
 								continue
 							for payload in payloads:
+								if parsedUrl in vunlerableUrlWithParam:
+									listOfParam = vunlerableUrlWithParam[parsedUrl]
+									if param in listOfParam:
+										#this param with this url already identified as vunlerable, skip the rest of the test
+										continue
 								if payload.endswith('#'):
 									#do not do this for get request...
 									continue
@@ -208,7 +213,7 @@ with open("../results/"+runname+'.json') as data_file:
 										text_file = open("OutputInitial.txt", "w")
 										text_file.write(initialContent)
 										text_file.close()
-									break		
+									continue		
 								#try:
 									#self_hijackSuccessful(initialRequest, newRequest, falseRequest, message =, payload, isPostRequest, initialTrip, newTrip, loginpayload={}, param="")
 								resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand,payload,False,initialTrip,trip,loginPayload,param)
@@ -232,7 +237,7 @@ with open("../results/"+runname+'.json') as data_file:
 									text_file = open("OutputInitial.txt", "w")
 									text_file.write(initialContent)
 									text_file.close()
-									break
+									continue
 
 						hackHeader = copy.deepcopy(initialheader)
 						hackHeader["referer"] = "some random header"
@@ -313,6 +318,11 @@ with open("../results/"+runname+'.json') as data_file:
 						jsonform.append(initialUrl)		
 					continue
 				for payload in payloads:
+					if parsedUrl in vunlerableUrlWithParam:
+						listOfParam = vunlerableUrlWithParam[parsedUrl]
+						if param in listOfParam:
+							#this param with this url already identified as vunlerable, skip the rest of the test
+							continue
 					if payload.endswith('#'):
 						#do not do this for get request...
 						continue
@@ -359,7 +369,7 @@ with open("../results/"+runname+'.json') as data_file:
 							text_file = open("OutputInitial.txt", "w")
 							text_file.write(initialContent)
 							text_file.close()
-						break
+						continue
 					print "-----------Result----------------"
 					try:
 						resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand, payload,False,initialTrip,trip,{},param)
@@ -381,7 +391,7 @@ with open("../results/"+runname+'.json') as data_file:
 						text_file = open("OutputInitial.txt", "w")
 						text_file.write(initialContent)
 						text_file.close()
-						break
+						continue
 			
 			hackHeader = copy.deepcopy(initialheader)
 			hackHeader["referer"] = "some random header"
@@ -399,7 +409,8 @@ with open("../results/"+runname+'.json') as data_file:
 						initialUrl["param"] = load
 						initialUrl["newurl"] = newurl
 						initialUrl["headers"] = hackHeader
-						jsonform.append(initialUrl)		
+						jsonform.append(initialUrl)	
+						break	
 	data["urls"] = copy.deepcopy(urlsToProcess)
 									
 		
@@ -459,6 +470,11 @@ with open("../results/"+runname+'.json') as data_file:
 						jsonform.append(initialUrl)		
 					continue
 				for payload in payloads:
+					if parsedUrl in vunlerableUrlWithParam:
+						listOfParam = vunlerableUrlWithParam[parsedUrl]
+						if param in listOfParam:
+							#this param with this url already identified as vunlerable, skip the rest of the test
+							continue
 					#replace each parameter with the payload to test
 					#only test blind
 					#only test blind sql for post
@@ -503,7 +519,7 @@ with open("../results/"+runname+'.json') as data_file:
 							text_file = open("OutputInitial.txt", "w")
 							text_file.write(initialContent)
 							text_file.close()
-						break	
+						continue	
 					length = len(r.content)
 					
 					print time.strftime("%H:%M:%S")
@@ -536,7 +552,7 @@ with open("../results/"+runname+'.json') as data_file:
 							text_file = open("OutputInitial.txt", "w")
 							text_file.write(initialContent)
 							text_file.close()
-						break
+						continue
 					
 
 			hackHeader = copy.deepcopy(defaultHeader)
@@ -640,6 +656,11 @@ with open("../results/"+runname+'.json') as data_file:
 									jsonform.append(initialUrl)	
 								continue
 							for payload in payloads:
+								if parsedUrl in vunlerableUrlWithParam:
+									listOfParam = vunlerableUrlWithParam[parsedUrl]
+									if param in listOfParam:
+										#this param with this url already identified as vunlerable, skip the rest of the test
+										continue
 								#only test blind sql for post								
 								ifisSleepCommand = False
 								if "sleep" in payload:
@@ -682,7 +703,7 @@ with open("../results/"+runname+'.json') as data_file:
 										text_file = open("OutputInitial.txt", "w")
 										text_file.write(initialContent)
 										text_file.close()
-									break	
+									continue	
 								newContent = r.content
 								trip = time.time() - start
 								length = len(r.content)
@@ -714,7 +735,7 @@ with open("../results/"+runname+'.json') as data_file:
 										text_file = open("OutputInitial.txt", "w")
 										text_file.write(initialContent)
 										text_file.close()
-									break
+									continue
 
 						hackHeader = copy.deepcopy(defaultHeader)
 						hackHeader["referer"] = "some random header"
