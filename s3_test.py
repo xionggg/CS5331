@@ -238,7 +238,7 @@ with open("../results/"+runname+'.json') as data_file:
 							#header may be used to hack
 							for payload in payloads:
 								hackHeader = copy.deepcopy(initialheader)
-								hackHeader["referer"] = "some random header"
+								hackHeader["referer"] = payload
 								requestAfterHeaderChange = s.get(url,params = initialLoad, headers=hackHeader, verify = False)
 								hackContentLength = len(requestAfterHeaderChange.content)
 								if hackContentLength == initialLength:
@@ -386,7 +386,7 @@ with open("../results/"+runname+'.json') as data_file:
 				#header may be used to hack
 				for payload in payloads:
 					hackHeader = copy.deepcopy(initialheader)
-					hackHeader["referer"] = "some random header"
+					hackHeader["referer"] = payload
 					requestAfterHeaderChange = requests.get(url,params = initialLoad, headers=hackHeader, verify = False)
 					hackContentLength = len(requestAfterHeaderChange.content)
 					if hackContentLength == initialLength:
@@ -526,7 +526,7 @@ with open("../results/"+runname+'.json') as data_file:
 				#header may be used to hack
 				for payload in payloads:
 					hackHeader = copy.deepcopy(initialheader)
-					hackHeader["referer"] = "some random header"
+					hackHeader["referer"] = payload
 					requestAfterHeaderChange = requests.post(url, data=initialLoad, headers=hackHeader, verify=False)
 					hackContentLength = len(requestAfterHeaderChange.content)
 					if hackContentLength == initialLength:
@@ -687,7 +687,7 @@ with open("../results/"+runname+'.json') as data_file:
 							#header may be used to hack
 							for payload in payloads:
 								hackHeader = copy.deepcopy(initialheader)
-								hackHeader["referer"] = "some random header"
+								hackHeader["referer"] = payload
 								requestAfterHeaderChange = s.post(url, data=initialLoad, headers=hackHeader, verify=False)
 								hackContentLength = len(requestAfterHeaderChange.content)
 								if hackContentLength == initialLength:
