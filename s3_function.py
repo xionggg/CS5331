@@ -49,18 +49,26 @@ def self_gotsqlsyntaxerror(content):
 	return False
 
 def self_hijackSuccessful(initialRequest, newRequest, falseRequest, isSleepCommand, payload, isPostRequest, initialTrip, newTrip, loginpayload={}, param=""):
+
+	if isinstance(payload, unicode):
+		payload = payload.encode('ascii','ignore')
 	try:
 		count = newRequest.content.count(urllib.unquote(payload).replace("+"," "))
 		lenthOfDecodedPayload = len(urllib.unquote(payload).replace("+"," "))
-		print "payload"
+
+		
 	except:
 		count = 0
 		lenthOfDecodedPayload = 0
 	print "count of encoded payload: "+str(count)
+	print type(str(payload))
 	try:
 		countBeforeDecode = newRequest.content.count(payload)
 	except:
+		print "exception"
 		countBeforeDecode = 0
+		pass
+	print payload
 	print "count of pure payload: "+str(countBeforeDecode)
 	print "pure payload length "+str(len(payload))
 	try:
@@ -93,6 +101,12 @@ def self_hijackSuccessful(initialRequest, newRequest, falseRequest, isSleepComma
 	if isSleepCommand and (newTrip-initialTrip)>5:
 		message = "Is sleep command and the response time diff larger than 5 second"
 		return [True,message]
+	else:
+		print newTrip
+		print initialTrip
+
+
+
 	if (not isSleepCommand) and (len(newRequest.content) <= len(initialRequest.content) + 20):
 		print len(newRequest.content)
 		print len(initialRequest.content)

@@ -7,6 +7,7 @@ import copy
 from pprint import pprint
 from s3_function import self_checkIfCanLogin,self_post,self_get,self_gotsqlsyntaxerror,self_checkStillLoggedIn,self_hijackSuccessful,self_parseURL
 from difflib import Differ
+import time
 jsonform = []
 loginPayloadDict = {}
 vunlerableUrlWithParam = {}
@@ -58,8 +59,9 @@ with open("../results/"+runname+'.json') as data_file:
 				print credential
 			else:
 				#try different payload to test if login has vunlerbility
-				for payload in payloads:
-					for param in credential:
+				
+				for param in credential:
+					for payload in payloads:
 						#replace the login parameter with different payload, test if can log in
 						fakeCredential = copy.deepcopy(credential)
 						if param in loginPayloadDict[url]:
@@ -71,6 +73,7 @@ with open("../results/"+runname+'.json') as data_file:
 								initialUrl = copy.deepcopy(urls)
 								initialUrl["param"] = fakeCredential
 								jsonform.append(initialUrl)					
+								break
 				loginPayloadDict[url] = credential
 	
 	data["urls"] = copy.deepcopy(urlsToProcess)
@@ -205,7 +208,7 @@ with open("../results/"+runname+'.json') as data_file:
 										text_file = open("OutputInitial.txt", "w")
 										text_file.write(initialContent)
 										text_file.close()
-									continue		
+									break		
 								#try:
 									#self_hijackSuccessful(initialRequest, newRequest, falseRequest, message =, payload, isPostRequest, initialTrip, newTrip, loginpayload={}, param="")
 								resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand,payload,False,initialTrip,trip,loginPayload,param)
@@ -229,6 +232,7 @@ with open("../results/"+runname+'.json') as data_file:
 									text_file = open("OutputInitial.txt", "w")
 									text_file.write(initialContent)
 									text_file.close()
+									break
 
 						hackHeader = copy.deepcopy(initialheader)
 						hackHeader["referer"] = "some random header"
@@ -248,7 +252,7 @@ with open("../results/"+runname+'.json') as data_file:
 									initialUrl["newurl"] = newurl
 									initialUrl["headers"] = hackHeader
 									jsonform.append(initialUrl)									
-							
+									break
 				
 	data["urls"] = copy.deepcopy(urlsToProcess)
 
@@ -355,7 +359,7 @@ with open("../results/"+runname+'.json') as data_file:
 							text_file = open("OutputInitial.txt", "w")
 							text_file.write(initialContent)
 							text_file.close()
-						continue	
+						break
 					print "-----------Result----------------"
 					try:
 						resultArray = self_hijackSuccessful(initialRequest,r,falseRequest,ifisSleepCommand, payload,False,initialTrip,trip,{},param)
@@ -377,6 +381,7 @@ with open("../results/"+runname+'.json') as data_file:
 						text_file = open("OutputInitial.txt", "w")
 						text_file.write(initialContent)
 						text_file.close()
+						break
 			
 			hackHeader = copy.deepcopy(initialheader)
 			hackHeader["referer"] = "some random header"
@@ -467,13 +472,15 @@ with open("../results/"+runname+'.json') as data_file:
 					if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
 						load[param] =  [payload]
 					else:
-						load[param][0] = load[param][0]+payload
+						load[param][0] = payload
 					start = time.time()
 					print "-----------Result----------------"
 					print load
-
+					print start
+					print time.strftime("%H:%M:%S")
 					r = requests.post(url, data=load, headers=defaultHeader, verify=False)
 					newContent = r.content
+					trip = time.time() - start
 					if self_gotsqlsyntaxerror(r.content):
 						#got sql syntax error hack successful
 						#break for loop
@@ -496,9 +503,12 @@ with open("../results/"+runname+'.json') as data_file:
 							text_file = open("OutputInitial.txt", "w")
 							text_file.write(initialContent)
 							text_file.close()
-						continue	
-					trip = time.time() - start
+						break	
 					length = len(r.content)
+					
+					print time.strftime("%H:%M:%S")
+					print trip
+					print time.time()
 
 					print "-----------Result----------------"
 					try:
@@ -509,16 +519,24 @@ with open("../results/"+runname+'.json') as data_file:
 						issuccessful = False
 					print issuccessful
 					if issuccessful:
-						initialUrl = copy.deepcopy(urls)
-						initialUrl["param"] = load
-						jsonform.append(initialUrl)				
+						if parsedUrl in vunlerableUrlWithParam:
+							listOfParam = vunlerableUrlWithParam[parsedUrl]
+							if param not in listOfParam:
+								listOfParam.append(param)
+						else:
+							listOfParam = [param]
+							vunlerableUrlWithParam[parsedUrl] = listOfParam
+							initialUrl = copy.deepcopy(urls)
+							initialUrl["param"] = load
+							jsonform.append(initialUrl)
 
-						text_file = open("Output.txt", "w")
-						text_file.write(newContent)
-						text_file.close()
-						text_file = open("OutputInitial.txt", "w")
-						text_file.write(initialContent)
-						text_file.close()
+							text_file = open("Output.txt", "w")
+							text_file.write(newContent)
+							text_file.close()
+							text_file = open("OutputInitial.txt", "w")
+							text_file.write(initialContent)
+							text_file.close()
+						break
 					
 
 			hackHeader = copy.deepcopy(defaultHeader)
@@ -533,10 +551,18 @@ with open("../results/"+runname+'.json') as data_file:
 					requestAfterHeaderChange = requests.post(url, data=initialLoad, headers=hackHeader, verify=False)
 					hackContentLength = len(requestAfterHeaderChange.content)
 					if hackContentLength == initialLength:
-						initialUrl = copy.deepcopy(urls)
-						initialUrl["param"] = load
-						initialUrl["headers"] = hackHeader
-						jsonform.append(initialUrl)		
+						if parsedUrl in vunlerableUrlWithParam:
+							listOfParam = vunlerableUrlWithParam[parsedUrl]
+							if param not in listOfParam:
+								listOfParam.append(param)
+						else:
+							listOfParam = [param]
+							vunlerableUrlWithParam[parsedUrl] = listOfParam
+							initialUrl = copy.deepcopy(urls)
+							initialUrl["param"] = load
+							initialUrl["headers"] = hackHeader
+							jsonform.append(initialUrl)
+						break
 	data["urls"] = copy.deepcopy(urlsToProcess)
 	
 	print"-------------Processing post and required log in-----------------------"
@@ -626,7 +652,7 @@ with open("../results/"+runname+'.json') as data_file:
 								if (not load[param]) or (load[param][0] is None) or (load[param][0] == "None"):
 									load[param] =  [payload]
 								else:
-									load[param][0] =  load[param][0]+payload
+									load[param][0] =  payload
 								start = time.time()
 								r = s.post(url,data = load, headers=defaultHeader, verify = False)
 
@@ -656,7 +682,7 @@ with open("../results/"+runname+'.json') as data_file:
 										text_file = open("OutputInitial.txt", "w")
 										text_file.write(initialContent)
 										text_file.close()
-									continue	
+									break	
 								newContent = r.content
 								trip = time.time() - start
 								length = len(r.content)
@@ -670,17 +696,25 @@ with open("../results/"+runname+'.json') as data_file:
 								print "-----------Result----------------"
 								print issuccessful
 								if issuccessful:
-									initialUrl = copy.deepcopy(urls)
-									initialUrl["param"] = load
-									initialUrl["loginpayload"] = loginpayload
-									jsonform.append(initialUrl)				
+									if parsedUrl in vunlerableUrlWithParam:
+										listOfParam = vunlerableUrlWithParam[parsedUrl]
+										if param not in listOfParam:
+											listOfParam.append(param)
+									else:
+										listOfParam = [param]
+										vunlerableUrlWithParam[parsedUrl] = listOfParam
+										initialUrl = copy.deepcopy(urls)
+										initialUrl["param"] = load
+										initialUrl["loginpayload"] = loginpayload
+										jsonform.append(initialUrl)
 
-									text_file = open("Output.txt", "w")
-									text_file.write(newContent)
-									text_file.close()
-									text_file = open("OutputInitial.txt", "w")
-									text_file.write(initialContent)
-									text_file.close()
+										text_file = open("Output.txt", "w")
+										text_file.write(newContent)
+										text_file.close()
+										text_file = open("OutputInitial.txt", "w")
+										text_file.write(initialContent)
+										text_file.close()
+									break
 
 						hackHeader = copy.deepcopy(defaultHeader)
 						hackHeader["referer"] = "some random header"
@@ -694,11 +728,19 @@ with open("../results/"+runname+'.json') as data_file:
 								requestAfterHeaderChange = s.post(url, data=initialLoad, headers=hackHeader, verify=False)
 								hackContentLength = len(requestAfterHeaderChange.content)
 								if hackContentLength == initialLength:
-									initialUrl = copy.deepcopy(urls)
-									initialUrl["param"] = load
-									initialUrl["loginpayload"] = loginpayload
-									initialUrl["headers"] = hackHeader
-									jsonform.append(initialUrl)		
+									if parsedUrl in vunlerableUrlWithParam:
+										listOfParam = vunlerableUrlWithParam[parsedUrl]
+										if param not in listOfParam:
+											listOfParam.append(param)
+									else:
+										listOfParam = [param]
+										vunlerableUrlWithParam[parsedUrl] = listOfParam
+										initialUrl = copy.deepcopy(urls)
+										initialUrl["param"] = load
+										initialUrl["loginpayload"] = loginpayload
+										initialUrl["headers"] = hackHeader
+										jsonform.append(initialUrl)
+									break
 	data["urls"] = copy.deepcopy(urlsToProcess)
 
 	
